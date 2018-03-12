@@ -14,7 +14,7 @@ public class OffsetScroller : MonoBehaviour
 
     void Update()
     {
-        float newPos = Mathf.Repeat(Time.time * scrollSpeed, 19.94f);
+        float newPos = Mathf.Repeat(Time.time * scrollSpeed, 19.2f);
         transform.position = savedOffset + Vector2.right * newPos;
     }
 
