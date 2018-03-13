@@ -27,6 +27,7 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision) {
         Projectile missle = collision.gameObject.GetComponent<Projectile>();
         if (missle && collision.gameObject.tag == "Playerpro") {
