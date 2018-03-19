@@ -6,6 +6,9 @@ public class StartGame : MonoBehaviour {
 
     // Use this for initialization
     public GameObject startMenuUI;
+
+
+
     // Use this for initialization
     void Start()
     {
@@ -17,6 +20,7 @@ public class StartGame : MonoBehaviour {
     {
         Time.timeScale = 1f;
         startMenuUI.SetActive(false);
+
     }
 
     public void onQuit()

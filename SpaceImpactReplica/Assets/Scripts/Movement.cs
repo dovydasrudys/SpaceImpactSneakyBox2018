@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     Vector3 movement = new Vector3();
     float h;
     float v;
+    public bool isDead = false;
 
     void FixedUpdate()
     {
@@ -38,9 +39,12 @@ public class Movement : MonoBehaviour
             missle.Hit();
             if (health <= 0) {
                 Destroy(gameObject);
+                isDead = true;
             }
         }
     }
+
+
 
 
 }
