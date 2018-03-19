@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
     public GameObject enemyType;
-    public int maxNumberOfEnemies;
     public int spawnTimeIntervals;
-    int enemyNumber = 0;
     float timer = 0f;
-    List<GameObject> enemies = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
         transform.Rotate(new Vector3(0, 0, -90));
@@ -22,24 +19,11 @@ public class EnemySpawn : MonoBehaviour {
             SpawnEnemy(enemyType);
             timer = 0;
         }
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            if(isOffScreen(enemies[i].transform))
-            {
-                Destroy(enemies[i]);
-                enemies.RemoveAt(i);
-            }
-        }
 	}
 
     void SpawnEnemy(GameObject type)
     {
-        if (enemies.Count >= maxNumberOfEnemies)
-            return;
-        else
-        {
-            enemies.Add(Instantiate(type, generatePosition(), transform.rotation));
-        }
+        Instantiate(type, generatePosition(), transform.rotation);
     }
     Vector3 generatePosition()
     {

@@ -7,8 +7,11 @@ public class Movement : MonoBehaviour
 
     public float speed;
     public float health = 200f;
+    public float shotsPerSecond = 2f;
+    public float projectileSpeed = 5f;
+    float timer;
+    public GameObject projectile;
 
-    private Vector2 direction = Vector2.zero;
     Vector3 movement = new Vector3();
     float h;
     float v;
@@ -17,6 +20,18 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        FireAtSpecifiedRate();
+    }
+
+    void FireAtSpecifiedRate()
+    {
+        transform.Translate(Vector2.down * Time.deltaTime * speed);
+        timer += Time.deltaTime;
+        if (timer > shotsPerSecond)
+        {
+            Fire();
+            timer = 0;
+        }
     }
 
     void Move()
@@ -32,11 +47,11 @@ public class Movement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Projectile missle = collision.gameObject.GetComponent<Projectile>();
-        if (missle && collision.gameObject.tag == "EnemyProjectile")
+        if (collision.gameObject.tag == "EnemyProjectile")
         {
-            health -= missle.GetDamage();
-            missle.Hit();
+            Projectile missile = collision.gameObject.GetComponent<Projectile>();
+            health -= missile.GetDamage();
+            missile.Hit();
             if (health <= 0) {
                 Destroy(gameObject);
                 isDead = true;
@@ -44,7 +59,11 @@ public class Movement : MonoBehaviour
         }
     }
 
-
-
+    private void Fire()
+    {
+        Vector3 position = transform.position + new Vector3(0.8f, 0f);
+        GameObject missile = Instantiate(projectile, position, transform.rotation/*Quaternion.identity*/) as GameObject;
+        missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+    }
 
 }

@@ -25,17 +25,31 @@ public class EnemyBehaviour : MonoBehaviour {
             Fire();
             timer = 0;
         }
+        if (isOffScreen() || health <= 0)
+            Destroy(gameObject);
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Projectile missle = collision.gameObject.GetComponent<Projectile>();
-        if (missle && collision.gameObject.tag == "Playerpro") {
-            health -= missle.GetDamage();
-            missle.Hit();
-            if (health <= 0) {
-                Destroy(gameObject);
-            }
+        if (collision.gameObject.tag == "PlayerProjectile") {
+            Projectile missile = collision.gameObject.GetComponent<Projectile>();
+            ReceiveDamage(missile.GetDamage());
+            missile.Hit();
         }
+        else if (collision.gameObject.tag == "Player")
+        {
+            ReceiveDamage(health);
+        }
+    }
+    
+    public void ReceiveDamage(float damage)
+    {
+        health -= damage;
+    }
+    bool isOffScreen()
+    {
+        if (transform.position.x < -9 || Mathf.Abs(transform.position.y) > 5)
+            return true;
+        return false;
     }
 }
