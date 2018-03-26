@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour {
 
@@ -10,7 +11,9 @@ public class EnemyBehaviour : MonoBehaviour {
     public float shotsPerSecond = 2f;
     public float projectileSpeed = 5f;
     public float movementSpeed = 2f;
+    public float chargeBarValue = 10;
     public GameObject projectile;
+    
 
     private void Fire() {
         Vector3 position = transform.position + new Vector3(-0.8f, 0f);
@@ -25,8 +28,11 @@ public class EnemyBehaviour : MonoBehaviour {
             Fire();
             timer = 0;
         }
-        if (isOffScreen() || health <= 0)
+        if (isOffScreen() || health <= 0) {
+            Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
+            test.value += chargeBarValue;
             Destroy(gameObject);
+        }
     }
 
 
@@ -40,8 +46,11 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             ReceiveDamage(health);
         }
+        else if (collision.gameObject.layer == 8) {
+            ReceiveDamage(health);
+        }
     }
-    
+
     public void ReceiveDamage(float damage)
     {
         health -= damage;

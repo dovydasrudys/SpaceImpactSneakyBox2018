@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -10,15 +11,22 @@ public class Movement : MonoBehaviour
     public float shotsPerSecond = 2f;
     public float projectileSpeed = 5f;
     float timer;
+    Slider special;
     public GameObject projectile;
+    public GameObject ulti;
 
     Vector3 movement = new Vector3();
     float h;
     float v;
     public bool isDead = false;
 
+    private void Start() {
+        special = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
+    }
+
     void FixedUpdate()
     {
+        SpecialAttack();
         Move();
         FireAtSpecifiedRate();
     }
@@ -31,6 +39,14 @@ public class Movement : MonoBehaviour
         {
             Fire();
             timer = 0;
+        }
+    }
+
+    void SpecialAttack() {
+
+        if(Input.GetKeyDown("space") && special.value == 100) {
+            ulti.SetActive(true);
+            special.value = 0;
         }
     }
 
