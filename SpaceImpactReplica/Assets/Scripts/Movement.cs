@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public float projectileSpeed = 5f;
     float timer;
     Slider special;
+    Slider healthbar;
     public GameObject projectile;
     public GameObject ulti;
 
@@ -22,6 +23,7 @@ public class Movement : MonoBehaviour
 
     private void Start() {
         special = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
+        healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
     }
 
     void FixedUpdate()
@@ -63,16 +65,26 @@ public class Movement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        
+        
         if (collision.gameObject.tag == "EnemyProjectile")
         {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
             health -= missile.GetDamage();
+            healthbar.value -= missile.GetDamage();
             missile.Hit();
-            if (health <= 0) {
-                Destroy(gameObject);
-                isDead = true;
-            }
         }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            health -= 70;
+            healthbar.value -= 70;
+        }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            isDead = true;
+        }
+
     }
 
     private void Fire()

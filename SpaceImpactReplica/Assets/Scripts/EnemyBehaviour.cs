@@ -46,9 +46,10 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             ReceiveDamage(health);
         }
-        else if (collision.gameObject.layer == 8) {
+        else if (collision.gameObject.tag == "SpecialMove") {
             ReceiveDamage(health);
         }
+
     }
 
     public void ReceiveDamage(float damage)

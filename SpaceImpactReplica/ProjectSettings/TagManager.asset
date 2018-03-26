@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - slider
   - ChargeBar
+  - HealthBar
+  - SpecialMove
   layers:
   - Default
   - TransparentFX
