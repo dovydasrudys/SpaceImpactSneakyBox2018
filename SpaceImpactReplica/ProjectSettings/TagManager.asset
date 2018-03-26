@@ -11,6 +11,7 @@ TagManager:
   - ChargeBar
   - HealthBar
   - SpecialMove
+  - HealthUp
   layers:
   - Default
   - TransparentFX

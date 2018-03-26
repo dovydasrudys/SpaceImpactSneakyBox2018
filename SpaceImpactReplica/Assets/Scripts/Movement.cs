@@ -79,12 +79,17 @@ public class Movement : MonoBehaviour
             health -= 70;
             healthbar.value -= 70;
         }
+        else if (collision.gameObject.tag == "HealthUp")
+        {
+            health += 50;
+            healthbar.value += 50;
+        }
         if (health <= 0)
         {
             Destroy(gameObject);
             isDead = true;
         }
-
+        
     }
 
     private void Fire()

@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public float projectileSpeed = 5f;
     public float movementSpeed = 2f;
     public float chargeBarValue = 10;
+    public GameObject Drop1;
     public GameObject projectile;
     
 
@@ -31,7 +32,14 @@ public class EnemyBehaviour : MonoBehaviour {
         if (isOffScreen() || health <= 0) {
             Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
             test.value += chargeBarValue;
+            if (health <= 0)
+            {
+                Debug.Log("healthdrop");
+                Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                Instantiate(Drop1, position, transform.rotation);
+            }
             Destroy(gameObject);
+            
         }
     }
 
@@ -55,6 +63,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public void ReceiveDamage(float damage)
     {
         health -= damage;
+        
     }
     bool isOffScreen()
     {

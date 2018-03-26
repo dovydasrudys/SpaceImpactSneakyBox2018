@@ -968,12 +968,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -1244,12 +1244,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
