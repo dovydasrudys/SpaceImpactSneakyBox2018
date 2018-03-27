@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public float health = 200f;
     public float shotsPerSecond = 2f;
     public float projectileSpeed = 5f;
+    public int points;
     float timer;
     Slider special;
     Slider healthbar;
@@ -78,6 +79,7 @@ public class Movement : MonoBehaviour
         {
             health -= 70;
             healthbar.value -= 70;
+            IncreasePoints(collision.gameObject.GetComponent<EnemyBehaviour>().pointsDropped);
         }
         else if (collision.gameObject.tag == "HealthUp")
         {
@@ -92,6 +94,10 @@ public class Movement : MonoBehaviour
         
     }
 
+    public void IncreasePoints(int pointsAdded)
+    {
+        points += pointsAdded;
+    }
     private void Fire()
     {
         Vector3 position = transform.position + new Vector3(0.8f, 0f);

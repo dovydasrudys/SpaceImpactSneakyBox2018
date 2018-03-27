@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyBehaviour : MonoBehaviour {
 
     float timer;
+    public int pointsDropped = 150;
     public float health = 150f;
     public float firingRate = 0.5f;
     public float shotsPerSecond = 2f;
@@ -34,7 +35,6 @@ public class EnemyBehaviour : MonoBehaviour {
             test.value += chargeBarValue;
             if (health <= 0)
             {
-                Debug.Log("healthdrop");
                 Vector3 position = transform.position + new Vector3(0f, -0.8f);
                 Instantiate(Drop1, position, transform.rotation);
             }
@@ -48,6 +48,7 @@ public class EnemyBehaviour : MonoBehaviour {
         if (collision.gameObject.tag == "PlayerProjectile") {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
             ReceiveDamage(missile.GetDamage());
+            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
             missile.Hit();
         }
         else if (collision.gameObject.tag == "Player")
@@ -56,6 +57,7 @@ public class EnemyBehaviour : MonoBehaviour {
         }
         else if (collision.gameObject.tag == "SpecialMove") {
             ReceiveDamage(health);
+            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
         }
 
     }

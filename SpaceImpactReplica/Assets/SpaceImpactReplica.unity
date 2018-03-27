@@ -440,6 +440,7 @@ MonoBehaviour:
   health: 200
   shotsPerSecond: 1
   projectileSpeed: 5
+  points: 0
   projectile: {fileID: 1931636397207846, guid: cc7e897e25af09f4885c12c765e88521, type: 2}
   ulti: {fileID: 29974659}
   isDead: 0
@@ -1049,6 +1050,10 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1746948368815300, guid: 2bd44daa083f71647a48d1f643ec8e4c, type: 2}
+      propertyPath: m_Name
+      value: ChargeBar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd44daa083f71647a48d1f643ec8e4c, type: 2}
   m_IsPrefabParent: 0
@@ -1345,6 +1350,10 @@ Prefab:
       propertyPath: m_MaxValue
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 1746948368815300, guid: 2bd44daa083f71647a48d1f643ec8e4c, type: 2}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2bd44daa083f71647a48d1f643ec8e4c, type: 2}
   m_IsPrefabParent: 0
@@ -1357,6 +1366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961687941}
   - component: {fileID: 961687942}
+  - component: {fileID: 961687943}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -1390,6 +1400,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: {fileID: 1986652244363940, guid: 3c5ceee6ac12fde4dbb335e2ba2edd97, type: 2}
   spawnTimeIntervals: 2
+--- !u!114 &961687943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 961687940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487e2c8351043af48867f3af136699ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBox: {fileID: 1562737529}
+  player: {fileID: 685648567}
 --- !u!1 &1005841716
 GameObject:
   m_ObjectHideFlags: 0
