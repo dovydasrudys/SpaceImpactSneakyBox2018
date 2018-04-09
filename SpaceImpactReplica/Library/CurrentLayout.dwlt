@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 711, y: 492}
-  m_MaxSize: {x: 18006, y: 14042}
+  m_MinSize: {x: 713, y: 492}
+  m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 166
+  controlID: 27475
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,10 +131,10 @@ MonoBehaviour:
     y: 0
     width: 864
     height: 947
-  m_MinSize: {x: 202, y: 421}
-  m_MaxSize: {x: 4002, y: 8021}
+  m_MinSize: {x: 202, y: 442}
+  m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 191
+  controlID: 27456
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 167
+  controlID: 27426
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -331,7 +331,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 0
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
@@ -343,18 +343,18 @@ MonoBehaviour:
       y: 17
       width: 862
       height: 185
-    m_Scale: {x: 0.1712963, y: 0.1712963}
-    m_Translation: {x: 431, y: 92.5}
+    m_Scale: {x: 0.17643517, y: 0.17643519}
+    m_Translation: {x: 430.99997, y: 94.075}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -2516.1082
-      y: -540
-      width: 5032.2163
-      height: 1080
+      x: -2442.8235
+      y: -533.1986
+      width: 4885.647
+      height: 1048.5437
     m_MinimalGUI: 1
   m_defaultScale: 0.1712963
   m_TargetTexture: {fileID: 0}
@@ -396,9 +396,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.12671942, y: -0.0313239, z: -0.003868045}
+    m_Target: {x: -3.929578, y: 0.21880263, z: -0.07302662}
     speed: 2
-    m_Value: {x: -0.12671942, y: -0.0313239, z: -0.003868045}
+    m_Value: {x: -3.929578, y: 0.21880263, z: -0.07302662}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -426,9 +426,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.96313
+    m_Target: 15.884423
     speed: 2
-    m_Value: 8.96313
+    m_Value: 15.884423
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -498,7 +498,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 9efbffff00000000
+    m_ExpandedIDs: b89ffeffd688ffff6289ffff768affffaefaffff000000005c290000f03200006c330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -560,18 +560,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Images/Prefabs
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Dovydas\Documents\2_Kursas_ PAVASARIS\Semestro projektas\GitHub\SpaceImpactReplica
+  m_LastProjectPath: D:\FeelsBadMan\SpaceImpactReplica
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ee240000
     m_LastClickedID: 9454
-    m_ExpandedIDs: 000000008c2700009027000092270000a6270000ae270000ee27000040280000d6290000d8290000da290000dc290000de290000e0290000
+    m_ExpandedIDs: 000000002e280000322800003428000048280000dc280000542a0000562a0000582a00005a2a00005c2a00005e2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -599,7 +599,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c2700009027000092270000a6270000ae270000ee27000040280000d6290000d8290000da290000dc290000de290000e0290000
+    m_ExpandedIDs: 000000002e280000322800003428000048280000dc280000542a0000562a0000582a00005a2a00005c2a00005e2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

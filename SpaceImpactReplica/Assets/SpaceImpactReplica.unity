@@ -438,7 +438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   health: 200
-  shotsPerSecond: 1
+  maxHealth: 200
+  secondsPerShot: 2
   projectileSpeed: 5
   points: 0
   projectile: {fileID: 1931636397207846, guid: cc7e897e25af09f4885c12c765e88521, type: 2}
@@ -1367,6 +1368,7 @@ GameObject:
   - component: {fileID: 961687941}
   - component: {fileID: 961687942}
   - component: {fileID: 961687943}
+  - component: {fileID: 961687944}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -1381,7 +1383,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 961687940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1258.751, y: 467.23514, z: 21.969011}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1400,6 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: {fileID: 1986652244363940, guid: 3c5ceee6ac12fde4dbb335e2ba2edd97, type: 2}
   spawnTimeIntervals: 2
+  enemiesSpawned: 0
 --- !u!114 &961687943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,6 +1416,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreBox: {fileID: 1562737529}
   player: {fileID: 685648567}
+--- !u!114 &961687944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 961687940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d73cab6be598be042b7f7b2e372fec4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerup1: {fileID: 1663250470522054, guid: 111d78e25d75e514eb13cf9b8f83cbbf, type: 2}
+  powerup2: {fileID: 1328255436979942, guid: 59fb8e269dd2781488a4b2322a5ba596, type: 2}
+  powerup3: {fileID: 1644954648758952, guid: d9cefcde8684d6d45a3966b8617bd49f, type: 2}
 --- !u!1 &1005841716
 GameObject:
   m_ObjectHideFlags: 0

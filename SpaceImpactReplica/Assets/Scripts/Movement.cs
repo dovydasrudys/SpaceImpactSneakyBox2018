@@ -8,7 +8,8 @@ public class Movement : MonoBehaviour
 
     public float speed;
     public float health = 200f;
-    public float shotsPerSecond = 2f;
+    public float maxHealth = 200f;
+    public float secondsPerShot = 2f;
     public float projectileSpeed = 5f;
     public int points;
     float timer;
@@ -25,6 +26,7 @@ public class Movement : MonoBehaviour
     private void Start() {
         special = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
         healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
+        projectile.GetComponent<Projectile>().damage = 200f;
     }
 
     void FixedUpdate()
@@ -32,13 +34,14 @@ public class Movement : MonoBehaviour
         SpecialAttack();
         Move();
         FireAtSpecifiedRate();
+        Debug.Log(projectile.GetComponent<Projectile>().damage);
     }
 
     void FireAtSpecifiedRate()
     {
         transform.Translate(Vector2.down * Time.deltaTime * speed);
         timer += Time.deltaTime;
-        if (timer > shotsPerSecond)
+        if (timer > secondsPerShot)
         {
             Fire();
             timer = 0;
@@ -60,7 +63,7 @@ public class Movement : MonoBehaviour
 
         movement.Set(h, v, 0);
         transform.localPosition += movement * speed;
-        float newX = Mathf.Clamp(transform.position.x, -8, 8);
+        float newX = Mathf.Clamp(transform.position.x, -8.4f, 8.4f);
         float newY = Mathf.Clamp(transform.position.y, -4, 4);
         transform.localPosition = new Vector3(newX, newY, transform.position.z);
     }
@@ -85,6 +88,20 @@ public class Movement : MonoBehaviour
         {
             health += 50;
             healthbar.value += 50;
+            if (health > maxHealth)
+                health = maxHealth;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "PowerUp")
+        {
+            GameObject pwup = collision.gameObject;
+            healthbar.maxValue *= pwup.GetComponent<Powerup>().Health;
+            maxHealth *= pwup.GetComponent<Powerup>().Health;
+            secondsPerShot *= pwup.GetComponent<Powerup>().FiringRate;
+            projectile.GetComponent<Projectile>().damage *= pwup.GetComponent<Powerup>().Damage;
+            
+            FindObjectOfType<Shop>().DestroyPowerUps();
+            pwup.GetComponent<Powerup>().Hit();
         }
         if (health <= 0)
         {

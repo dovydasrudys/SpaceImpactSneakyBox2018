@@ -33,10 +33,14 @@ public class EnemyBehaviour : MonoBehaviour {
         if (isOffScreen() || health <= 0) {
             Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
             test.value += chargeBarValue;
+            
             if (health <= 0)
             {
-                Vector3 position = transform.position + new Vector3(0f, -0.8f);
-                Instantiate(Drop1, position, transform.rotation);
+                if (Random.Range(1f, 100f) <= 20f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(Drop1, position, transform.rotation);
+                }
             }
             Destroy(gameObject);
             

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour {
     public GameObject enemyType;
     public int spawnTimeIntervals;
+    public int enemiesSpawned;
     float timer = 0f;
 	// Use this for initialization
 	void Start () {
@@ -18,8 +19,11 @@ public class EnemySpawn : MonoBehaviour {
         {
             SpawnEnemy(enemyType);
             timer = 0;
+            enemiesSpawned++;
         }
-	}
+        if (enemiesSpawned > 10)
+            enemiesSpawned = 1;
+    }
 
     void SpawnEnemy(GameObject type)
     {
