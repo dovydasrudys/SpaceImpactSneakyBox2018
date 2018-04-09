@@ -7,14 +7,17 @@ public class EnemySpawn : MonoBehaviour {
     public int spawnTimeIntervals;
     public int enemiesSpawned;
     float timer = 0f;
+
 	// Use this for initialization
 	void Start () {
         transform.Rotate(new Vector3(0, 0, -90));
+        timer = 9;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
+
         if(timer >= spawnTimeIntervals)
         {
             SpawnEnemy(enemyType);
@@ -27,16 +30,42 @@ public class EnemySpawn : MonoBehaviour {
 
     void SpawnEnemy(GameObject type)
     {
-        Instantiate(type, generatePosition(), transform.rotation);
+        int spawnLocation = Random.Range(-4, 0);
+        int spawnOption = Random.Range(1, 5);
+
+        if (spawnOption == 1)
+        {
+            for (int i = 0; i < 3; i++)
+                Instantiate(type, new Vector3(10, spawnLocation + i), transform.rotation);
+
+        }
+
+        else if (spawnOption == 2)
+        {
+            for (int i = 0; i < 5; i++)
+                Instantiate(type, new Vector3(10-i, spawnLocation + i+0.5f), transform.rotation);
+        }
+
+        else if (spawnOption == 3)
+        {
+            for (int i = 0; i < 3; i++)
+                Instantiate(type, new Vector3(10, spawnLocation + (1+i+0.5f)), transform.rotation);
+        }
+
+        else if (spawnOption == 4)
+        {
+            for (int i = 0; i < 5; i++)
+                Instantiate(type, new Vector3(10 +i, spawnLocation + i+0.5f), transform.rotation);
+        }
+
     }
-    Vector3 generatePosition()
-    {
-        return new Vector3(10, Random.Range(-3.5f, 3.5f));
-    }
+    
     bool isOffScreen(Transform tr)
     {
         if (tr.position.x < -9 || Mathf.Abs(tr.position.y) > 5)
             return true;
         return false;
     }
+
+    
 }
