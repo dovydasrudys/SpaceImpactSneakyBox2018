@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpacialMove : MonoBehaviour {
 
     float timer = 0f;
-    float lastTime = 4f;
+    float lastTime = 10f;
     EnemyBehaviour enemy;
 
     private void Start() {

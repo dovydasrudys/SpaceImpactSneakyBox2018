@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
         SpecialAttack();
         Move();
         FireAtSpecifiedRate();
-        Debug.Log(projectile.GetComponent<Projectile>().damage);
+        //Debug.Log(projectile.GetComponent<Projectile>().damage);
     }
 
     void FireAtSpecifiedRate()
@@ -77,8 +77,10 @@ public class Movement : MonoBehaviour
             health -= missile.GetDamage();
             healthbar.value -= missile.GetDamage();
             missile.Hit();
-        }
-        else if (collision.gameObject.tag == "Enemy")
+        } else if (collision.gameObject.tag == "Boss") {
+            health -= 50;
+            healthbar.value -= 50;  
+        } else if (collision.gameObject.tag == "Enemy")
         {
             health -= 70;
             healthbar.value -= 70;

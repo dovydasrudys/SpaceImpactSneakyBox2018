@@ -13,6 +13,8 @@ TagManager:
   - SpecialMove
   - HealthUp
   - PowerUp
+  - BossHealth
+  - Boss
   layers:
   - Default
   - TransparentFX
