@@ -8,6 +8,8 @@ public class Boss1Behaviour : MonoBehaviour {
     public float hitPoints;
 
     public float projectileSpeed = 5f;
+    public GameObject prize;
+    public GameObject slide;
     public GameObject projectile;
     public GameObject position1;
     public GameObject position2;
@@ -29,6 +31,7 @@ public class Boss1Behaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        Instantiate(slide, new Vector3(17.6f, 18.8f), slide.transform.rotation);
         health = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
         health.maxValue = hitPoints;
         health.value = hitPoints;
@@ -93,6 +96,13 @@ public class Boss1Behaviour : MonoBehaviour {
 
         if (dealDamage) {
             TakeDamage();
+        }
+        if (hitPoints <= 0)
+        {
+            Destroy(gameObject);
+            GameObject.FindGameObjectWithTag("BossHealth").SetActive(false);
+            GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().SpawnEnemies = true;
+            Instantiate(prize, new Vector3(8, 0), prize.transform.rotation);
         }
     }
 }

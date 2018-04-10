@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 1
   FiringRate: 1
-  Damage: 0.5
+  Damage: 1.1
   Triggerred: 0
 --- !u!212 &212905441296209048
 SpriteRenderer:

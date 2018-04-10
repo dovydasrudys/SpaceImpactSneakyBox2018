@@ -15,6 +15,9 @@ TagManager:
   - PowerUp
   - BossHealth
   - Boss
+  - GameControl
+  - Canvas
+  - Prize
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour {
     public GameObject enemyType;
+    public GameObject boss;
+    public GameObject prize;
     public int spawnTimeIntervals;
     public int enemiesSpawned;
     float timer = 0f;
+    public bool SpawnEnemies = true;
+    public bool SpawnBoss = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,15 +22,29 @@ public class EnemySpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-
-        if(timer >= spawnTimeIntervals)
+        if (timer >= spawnTimeIntervals)
         {
-            SpawnEnemy(enemyType);
-            timer = 0;
-            enemiesSpawned++;
+            if (SpawnEnemies)
+            {
+                //if (timer >= spawnTimeIntervals)
+                //{
+                    SpawnEnemy(enemyType);
+                    timer = 0;
+                    enemiesSpawned++;
+                //}
+                if (enemiesSpawned == 5)
+                {
+                    enemiesSpawned = 0;
+                    SpawnEnemies = false;
+                    SpawnBoss = true;
+                }
+            }
+            if (SpawnBoss && timer >= spawnTimeIntervals)
+            {
+                SpawnBoss = false;
+                Instantiate(boss, new Vector3(5.5f, 0f), boss.transform.rotation);
+            }
         }
-        if (enemiesSpawned > 10)
-            enemiesSpawned = 1;
     }
 
     void SpawnEnemy(GameObject type)

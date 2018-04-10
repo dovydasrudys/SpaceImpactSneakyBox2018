@@ -24,9 +24,10 @@ public class Powerup : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ;
+        Triggerred = true;
         if (collision.gameObject.tag == "Player")
             Hit();
+        Destroy(GameObject.FindGameObjectWithTag("Prize"));
     }
 
     public void Hit()
