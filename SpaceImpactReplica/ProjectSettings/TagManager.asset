@@ -18,6 +18,7 @@ TagManager:
   - GameControl
   - Canvas
   - Prize
+  - Effect
   layers:
   - Default
   - TransparentFX

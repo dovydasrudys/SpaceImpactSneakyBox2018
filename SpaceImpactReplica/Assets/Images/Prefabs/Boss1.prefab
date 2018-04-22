@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9d5c62268a02844b75c7bf112563e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 600
+  hitPoints: 2000
   projectileSpeed: 5
   prize: {fileID: 1283299487194934, guid: b5132ab1811aeda45a682c39c1e3598e, type: 2}
   slide: {fileID: 1785019655834426, guid: 9f6278a2687fd2244bf4ca47584ad0cf, type: 2}

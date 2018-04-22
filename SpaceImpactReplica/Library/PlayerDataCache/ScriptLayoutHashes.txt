@@ -1,6 +1,8 @@
 WindowsStandalone
 SceneListBegin?
-Assets/SpaceImpactReplica.unity
+Assets/Scenes/MainMenu.unity
+Assets/Scenes/Levels.unity
+Assets/Scenes/SpaceImpactReplica.unity
 SceneListEnd?
 e310e9b89be2c9dc3d92fab1f69a6dad Assembly-CSharp.dll:.Move
 5845f717f96906afdaa5742d8f732e22 Assembly-CSharp.dll:.Projectile
@@ -122,7 +124,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 1f5e5d32a397a14ea2238e622327a549 Assembly-CSharp.dll:.PauseGame
 397bb7037a1bfd5bd4d91d62fb282b9b Assembly-CSharp.dll:.Powerup
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SpacialMove
+1b367ab425efbc21b4ffb4a0cbf7f906 Assembly-CSharp.dll:.SpacialMove
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -155,3 +157,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 4923779562bd6421b20a3316ebf75e7b Assembly-CSharp.dll:.MovingUpAndDown
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OffsetScroller
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Menu

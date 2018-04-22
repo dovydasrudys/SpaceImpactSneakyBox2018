@@ -13,8 +13,16 @@ public class EnemySpawn : MonoBehaviour {
     public bool SpawnEnemies = true;
     public bool SpawnBoss = false;
 
-	// Use this for initialization
-	void Start () {
+    Slider healthSlider;
+    Slider effectSlider;
+
+
+    // Use this for initialization
+    void Start () {
+        effectSlider = GameObject.FindGameObjectWithTag("Effect").GetComponent<Slider>();
+        healthSlider = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
+        healthSlider.gameObject.SetActive(false);
+        effectSlider.gameObject.SetActive(false);
         transform.Rotate(new Vector3(0, 0, -90));
         timer = 9;
 	}
@@ -43,6 +51,8 @@ public class EnemySpawn : MonoBehaviour {
             {
                 SpawnBoss = false;
                 Instantiate(boss, new Vector3(5.5f, 0f), boss.transform.rotation);
+                healthSlider.gameObject.SetActive(true);
+                effectSlider.gameObject.SetActive(true);
             }
         }
     }
