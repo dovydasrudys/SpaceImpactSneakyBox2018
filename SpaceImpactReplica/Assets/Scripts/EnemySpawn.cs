@@ -14,16 +14,12 @@ public class EnemySpawn : MonoBehaviour {
     public bool SpawnEnemies = true;
     public bool SpawnBoss = false;
 
-    Slider healthSlider;
-    Slider effectSlider;
+    public Slider healthSlider;
+    public Slider effectSlider;
 
 
     // Use this for initialization
-    void Start () {
-        effectSlider = GameObject.FindGameObjectWithTag("Effect").GetComponent<Slider>();
-        healthSlider = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
-        healthSlider.gameObject.SetActive(false);
-        effectSlider.gameObject.SetActive(false);
+    void Start () {        
         transform.Rotate(new Vector3(0, 0, -90));
         timer = 9;
 	}
@@ -37,7 +33,7 @@ public class EnemySpawn : MonoBehaviour {
             {
                 //if (timer >= spawnTimeIntervals)
                 //{
-                    SpawnEnemy(enemyType);
+                    SpawnEnemy(chooseEnemyType(enemyType,enemyType2));
                     timer = 0;
                     enemiesSpawned++;
                 //}
@@ -57,32 +53,30 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-
+    GameObject chooseEnemyType(GameObject type1, GameObject type2)
+    {
+        if (Random.Range(1, 3) == 1)
+            return type1;
+        return type2;
+    }
     void SpawnEnemy(GameObject type)
     {
         int spawnLocation = Random.Range(-4, 0);
-        int spawnOption = Random.Range(1, 6);
+        int spawnOption = Random.Range(1, 3);
 
-        if (spawnOption == 1 || spawnOption == 6)
-        {
-            for (int i = 0; i < 3; i++)
-                Instantiate(enemyType2, new Vector3(10, spawnLocation + i), transform.rotation);
-
-        }
-
-        else if (spawnOption == 2)
+        if (spawnOption == 1)
         {
             for (int i = 0; i < 5; i++)
                 Instantiate(type, new Vector3(12.5f-i, spawnLocation + i+0.5f), transform.rotation);
         }
 
-        else if (spawnOption == 3)
+        else if (spawnOption == 2)
         {
             for (int i = 0; i < 3; i++)
                 Instantiate(type, new Vector3(10, spawnLocation + (1+i+0.5f)), transform.rotation);
         }
 
-        else if (spawnOption == 4)
+        else if (spawnOption == 3)
         {
             for (int i = 0; i < 5; i++)
                 Instantiate(type, new Vector3(10 +i, spawnLocation + i+0.5f), transform.rotation);

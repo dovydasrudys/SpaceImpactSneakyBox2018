@@ -35,6 +35,7 @@ public class EnemyBehaviour : MonoBehaviour {
             
             if (health <= 0)
             {
+                FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
                 test.value += chargeBarValue;
                 if (Random.Range(1f, 100f) <= 20f)
                 {
@@ -42,6 +43,7 @@ public class EnemyBehaviour : MonoBehaviour {
                     Instantiate(Drop1, position, transform.rotation);
                 }
             }
+
             Destroy(gameObject);
             
         }
@@ -51,19 +53,15 @@ public class EnemyBehaviour : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "PlayerProjectile") {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
-            ReceiveDamage(missile.GetDamage());
-            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
+            ReceiveDamage(missile.GetDamage());            
             missile.Hit();
         }
         else if (collision.gameObject.tag == "Player")
-        {
             ReceiveDamage(health);
-        }
-        else if (collision.gameObject.tag == "SpecialMove") {
-            ReceiveDamage(health);
-            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
-        }
 
+        else if (collision.gameObject.tag == "SpecialMove") 
+            ReceiveDamage(health);
+        
     }
 
     public void ReceiveDamage(float damage)

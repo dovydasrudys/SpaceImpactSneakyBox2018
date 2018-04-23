@@ -78,8 +78,8 @@ public class Movement : MonoBehaviour
             healthbar.value -= missile.GetDamage();
             missile.Hit();
         } else if (collision.gameObject.tag == "Boss") {
-            health -= 50;
-            healthbar.value -= 50;  
+            health -= 300;
+            healthbar.value -= 300;  
         } else if (collision.gameObject.tag == "Enemy")
         {
             health -= 70;
@@ -103,14 +103,20 @@ public class Movement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "PowerUp")
         {
-            GameObject pwup = collision.gameObject;
-            healthbar.maxValue *= pwup.GetComponent<Powerup>().Health;
-            maxHealth *= pwup.GetComponent<Powerup>().Health;
-            secondsPerShot *= pwup.GetComponent<Powerup>().FiringRate;
-            projectile.GetComponent<Projectile>().damage *= pwup.GetComponent<Powerup>().Damage;
+            if (points >= 1000)
+            {
+                GameObject pwup = collision.gameObject;
+                healthbar.maxValue *= pwup.GetComponent<Powerup>().Health;
+                maxHealth *= pwup.GetComponent<Powerup>().Health;
+                secondsPerShot *= pwup.GetComponent<Powerup>().FiringRate;
+                projectile.GetComponent<Projectile>().damage *= pwup.GetComponent<Powerup>().Damage;
+
+                //FindObjectOfType<Shop>().DestroyPowerUps();
+                //pwup.GetComponent<Powerup>().Hit();
+                IncreasePoints(-1000);
+                pwup.GetComponent<Powerup>().Hit();
+            }
             
-            FindObjectOfType<Shop>().DestroyPowerUps();
-            pwup.GetComponent<Powerup>().Hit();
         }
         if (health <= 0)
         {

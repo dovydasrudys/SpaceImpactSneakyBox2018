@@ -15,57 +15,34 @@ public class Enemy2Behaviour : MonoBehaviour {
     public float wdistance = 10f;
     public float smoothTime = 10.0f;
     private Vector3 smoothVelocity = Vector3.zero;
+    float yDifferenceGoal;
 
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform; //target the player
+        yDifferenceGoal = player.position.y - transform.position.y;
     }
 
     private void Update()
     {
         player = GameObject.FindWithTag("Player").transform;
         int yDir;
-        if (player.position.y - transform.position.y < -1)
+        if (player.position.y - transform.position.y < yDifferenceGoal-1)
             yDir = 1;
-        else if (player.position.y - transform.position.y > 1)
+        else if (player.position.y - transform.position.y > yDifferenceGoal+1)
             yDir = -1;
         else
             yDir = 0;
         transform.Translate(new Vector2(yDir,-1) * Time.deltaTime * movementSpeed);
+        float newY = Mathf.Clamp(transform.position.y, -4.3f, 4.3f);
+        transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.position.z);
 
-        if (isOffScreen() || health <= 0) {
-            Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
-
-            if (health <= 0)
-                test.value += chargeBarValue;
+        if (isOffScreen()) {
+            
             Destroy(gameObject);
 
-        }
-        //transform.Translate(new Vector2(transform.position.x, player.transform.position.y) * Time.deltaTime * movementSpeed);
-        /*Vector3 forwardAxis = new Vector3(0, 0, -1);
-
-
-
-
-        transform.LookAt(player.position, forwardAxis);
-        Debug.DrawLine(transform.position, player.position);
-        transform.eulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
-        transform.position -= transform.TransformDirection(Vector2.up) * movementSpeed;
-
-
-        //if (/*isOffScreen() || health <= 0)
-        //{ 
-            
-        //    if (health <= 0)
-        //    {
-        //        Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
-        //        test.value += chargeBarValue;
-        //    }
-        //    Destroy(gameObject);
-        //}*/
-
-
+        }        
     }
     
 
@@ -75,8 +52,7 @@ public class Enemy2Behaviour : MonoBehaviour {
         if (collision.gameObject.tag == "PlayerProjectile")
         {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
-            ReceiveDamage(missile.GetDamage());
-            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
+            ReceiveDamage(missile.GetDamage());            
             missile.Hit();
         }
         else if (collision.gameObject.tag == "Player")
@@ -86,10 +62,14 @@ public class Enemy2Behaviour : MonoBehaviour {
         else if (collision.gameObject.tag == "SpecialMove")
         {
             ReceiveDamage(health);
-            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
         }
         if (health <= 0)
+        {
+            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
+            Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
+            test.value += chargeBarValue;
             Destroy(gameObject);
+        }
 
     }
 

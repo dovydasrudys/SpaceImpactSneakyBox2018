@@ -15,21 +15,6 @@ public class Powerup : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")        
-    //        Hit();
-    //    Debug.Log("1");
-    //}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Triggerred = true;
-        if (collision.gameObject.tag == "Player")
-            Hit();
-        Destroy(GameObject.FindGameObjectWithTag("Prize"));
-    }
-
     public void Hit()
     {
         Destroy(gameObject);

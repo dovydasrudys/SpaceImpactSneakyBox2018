@@ -31,7 +31,7 @@ public class Boss1Behaviour : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        Instantiate(slide, new Vector3(17.6f, 18.8f), slide.transform.rotation);
+        
         effectSlider = GameObject.FindGameObjectWithTag("Effect").GetComponent<Slider>();
         healthSlider = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
         healthSlider.maxValue = hitPoints;
@@ -109,11 +109,12 @@ public class Boss1Behaviour : MonoBehaviour {
         }
 
         if (hitPoints <= 0) {
-            Destroy(gameObject);
+            
             GameObject.FindGameObjectWithTag("BossHealth").SetActive(false);
             GameObject.FindGameObjectWithTag("Effect").SetActive(false);
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().SpawnEnemies = true;
             Instantiate(prize, new Vector3(8, 0), prize.transform.rotation);
+            Destroy(gameObject);
         }
     }
 }
