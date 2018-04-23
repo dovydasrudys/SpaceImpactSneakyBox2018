@@ -1406,12 +1406,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: {fileID: 1986652244363940, guid: 3c5ceee6ac12fde4dbb335e2ba2edd97, type: 2}
+  enemyType2: {fileID: 1934726567216790, guid: 3f628b5844c4f084b847dd01a9eddbb1, type: 2}
   boss: {fileID: 1294311217586350, guid: 8fa4f604ea841cf43b495c4cf4c3632b, type: 2}
   prize: {fileID: 1283299487194934, guid: b5132ab1811aeda45a682c39c1e3598e, type: 2}
   spawnTimeIntervals: 10
   enemiesSpawned: 0
-  SpawnEnemies: 0
-  SpawnBoss: 1
+  SpawnEnemies: 1
+  SpawnBoss: 0
 --- !u!114 &961687943
 MonoBehaviour:
   m_ObjectHideFlags: 0

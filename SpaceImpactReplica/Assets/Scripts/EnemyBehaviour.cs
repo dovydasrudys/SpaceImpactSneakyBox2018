@@ -31,11 +31,11 @@ public class EnemyBehaviour : MonoBehaviour {
             timer = 0;
         }
         if (isOffScreen() || health <= 0) {
-            Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
-            test.value += chargeBarValue;
+            Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();            
             
             if (health <= 0)
             {
+                test.value += chargeBarValue;
                 if (Random.Range(1f, 100f) <= 20f)
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);

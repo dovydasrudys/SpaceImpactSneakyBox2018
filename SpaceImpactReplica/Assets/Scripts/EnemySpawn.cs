@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour {
     public GameObject enemyType;
+    public GameObject enemyType2;
     public GameObject boss;
     public GameObject prize;
     public int spawnTimeIntervals;
@@ -60,19 +61,19 @@ public class EnemySpawn : MonoBehaviour {
     void SpawnEnemy(GameObject type)
     {
         int spawnLocation = Random.Range(-4, 0);
-        int spawnOption = Random.Range(1, 5);
+        int spawnOption = Random.Range(1, 6);
 
-        if (spawnOption == 1)
+        if (spawnOption == 1 || spawnOption == 6)
         {
             for (int i = 0; i < 3; i++)
-                Instantiate(type, new Vector3(10, spawnLocation + i), transform.rotation);
+                Instantiate(enemyType2, new Vector3(10, spawnLocation + i), transform.rotation);
 
         }
 
         else if (spawnOption == 2)
         {
             for (int i = 0; i < 5; i++)
-                Instantiate(type, new Vector3(10-i, spawnLocation + i+0.5f), transform.rotation);
+                Instantiate(type, new Vector3(12.5f-i, spawnLocation + i+0.5f), transform.rotation);
         }
 
         else if (spawnOption == 3)
@@ -85,7 +86,7 @@ public class EnemySpawn : MonoBehaviour {
         {
             for (int i = 0; i < 5; i++)
                 Instantiate(type, new Vector3(10 +i, spawnLocation + i+0.5f), transform.rotation);
-        }
+        }        
 
     }
     
