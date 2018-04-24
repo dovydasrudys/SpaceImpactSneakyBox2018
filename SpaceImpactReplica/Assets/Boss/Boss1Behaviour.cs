@@ -113,6 +113,7 @@ public class Boss1Behaviour : MonoBehaviour {
             GameObject.FindGameObjectWithTag("BossHealth").SetActive(false);
             GameObject.FindGameObjectWithTag("Effect").SetActive(false);
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().SpawnEnemies = true;
+            GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().bossesBeaten++;
             Instantiate(prize, new Vector3(8, 0), prize.transform.rotation);
             Destroy(gameObject);
         }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreDisplay : MonoBehaviour {
     public Text scoreBox;
     public GameObject player;
+    public int maxPoints = 0;
 	// Use this for initialization
 	void Start () {
 		

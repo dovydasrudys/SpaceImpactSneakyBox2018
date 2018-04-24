@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public float secondsPerShot = 2f;
     public float projectileSpeed = 5f;
     public int points;
+    public int maxPoints = 0;
     float timer;
     Slider special;
     Slider healthbar;
@@ -129,6 +130,8 @@ public class Movement : MonoBehaviour
     public void IncreasePoints(int pointsAdded)
     {
         points += pointsAdded;
+        if(pointsAdded > 0)
+            maxPoints += pointsAdded;
     }
     private void Fire()
     {

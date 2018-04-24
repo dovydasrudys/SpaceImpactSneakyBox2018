@@ -13,6 +13,7 @@ public class EnemySpawn : MonoBehaviour {
     float timer = 0f;
     public bool SpawnEnemies = true;
     public bool SpawnBoss = false;
+    public int bossesBeaten = 0;
 
     public Slider healthSlider;
     public Slider effectSlider;

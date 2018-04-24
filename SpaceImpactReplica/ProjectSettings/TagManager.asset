@@ -19,6 +19,10 @@ TagManager:
   - Canvas
   - Prize
   - Effect
+  - Enemy2
+  - ProceedButton
+  - PlayButton
+  - QuitButton
   layers:
   - Default
   - TransparentFX
