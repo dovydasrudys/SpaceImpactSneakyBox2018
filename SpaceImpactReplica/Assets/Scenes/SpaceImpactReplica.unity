@@ -156,18 +156,6 @@ PolygonCollider2D:
       - {x: 36.555305, y: -1.1088486}
       - {x: 36.47594, y: 1.2690163}
       - {x: 2.9811025, y: 1.3348935}
---- !u!114 &29974662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 29974659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d4f6c64e7bf5b41920ec56a72d2d47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastTime: 4
 --- !u!50 &29974664
 Rigidbody2D:
   serializedVersion: 4
@@ -1253,12 +1241,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -1533,12 +1521,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
