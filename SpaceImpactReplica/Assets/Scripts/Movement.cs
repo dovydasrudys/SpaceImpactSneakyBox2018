@@ -35,16 +35,14 @@ public class Movement : MonoBehaviour
         SpecialAttack();
         Move();
         FireAtSpecifiedRate();
-        //Debug.Log(projectile.GetComponent<Projectile>().damage);
     }
 
     void FireAtSpecifiedRate()
     {
-        transform.Translate(Vector2.down * Time.deltaTime * speed);
         timer += Time.deltaTime;
         if (timer > secondsPerShot)
         {
-            Fire();
+            FireThree();
             timer = 0;
         }
     }
@@ -102,6 +100,12 @@ public class Movement : MonoBehaviour
                 health = maxHealth;
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.tag == "Bomb")
+        {
+            health = 0;
+            healthbar.value = 0;
+            Destroy(collision.gameObject);
+        }
         else if (collision.gameObject.tag == "PowerUp")
         {
             if (points >= 1000)
@@ -138,6 +142,18 @@ public class Movement : MonoBehaviour
         Vector3 position = transform.position + new Vector3(0.8f, 0f);
         GameObject missile = Instantiate(projectile, position, transform.rotation/*Quaternion.identity*/) as GameObject;
         missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+    }
+    private void FireThree()
+    {
+        Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
+        Vector3 position2 = transform.position + new Vector3(0.5f, -0.5f);
+        Vector3 position3 = transform.position + new Vector3(0.8f, 0f);
+        GameObject missile1 = Instantiate(projectile, position1, transform.rotation/*Quaternion.identity*/) as GameObject;
+        missile1.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        GameObject missile2 = Instantiate(projectile, position2, transform.rotation/*Quaternion.identity*/) as GameObject;
+        missile2.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        GameObject missile3 = Instantiate(projectile, position3, transform.rotation/*Quaternion.identity*/) as GameObject;
+        missile3.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
     }
 
 }

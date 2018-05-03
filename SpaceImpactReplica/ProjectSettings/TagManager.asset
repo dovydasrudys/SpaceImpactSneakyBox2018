@@ -4,25 +4,36 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - EnemyProjectile
-  - PlayerProjectile
+  - Planet
   - Enemy
+  - Bonus
+  - Projectile
+  - Score
+  - Health
+  - CoinsText
+  - Coin
+  - PlayerRay
+  - Rocket
+  - ProceedButton
+  - GameControl
+  - Canvas
+  - QuitButton
+  - PlayButton
+  - Prize
+  - Boss
+  - Enemy2
+  - PlayerProjectile
+  - EnemyProjectile
+  - BossHealth
+  - PowerUp
+  - HealthUp
+  - SpecialMove
   - slider
   - ChargeBar
   - HealthBar
-  - SpecialMove
-  - HealthUp
-  - PowerUp
-  - BossHealth
-  - Boss
-  - GameControl
-  - Canvas
-  - Prize
   - Effect
-  - Enemy2
-  - ProceedButton
-  - PlayButton
-  - QuitButton
+  - Bomb
+  - Enemy3
   layers:
   - Default
   - TransparentFX
@@ -32,8 +43,8 @@ TagManager:
   - UI
   - 
   - 
-  - Ultimate
-  - EnemyLaser
+  - 
+  - 
   - 
   - 
   - 
@@ -59,4 +70,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1947543829
+    locked: 0
+  - name: Planets
+    uniqueID: 4094135763
+    locked: 0
+  - name: Projectile
+    uniqueID: 1111697911
+    locked: 0
+  - name: Enemy
+    uniqueID: 1152134415
+    locked: 0
+  - name: Bonus
+    uniqueID: 689362467
+    locked: 0
+  - name: Player
+    uniqueID: 2402381985
+    locked: 0
+  - name: VFX
+    uniqueID: 738997965
     locked: 0

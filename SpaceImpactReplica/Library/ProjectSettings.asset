@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 5c1d873362bdf8944a6b46d6ef8a54ad
+  productGUID: 00000000000000000000000000000000
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -67,7 +67,7 @@ PlayerSettings:
   defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
-  runInBackground: 0
+  runInBackground: 1
   captureSingleScreen: 0
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
@@ -238,7 +238,7 @@ PlayerSettings:
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
-  clonedFromGUID: 00000000000000000000000000000000
+  clonedFromGUID: 3e04e6f971252ce4f9d6ad4c27c29b03
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -563,14 +563,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: SpaceImpactReplica
+  metroPackageName: Space Shooter FREE
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: SpaceImpactReplica
+  metroApplicationDescription: Space Shooter FREE
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -630,17 +630,18 @@ PlayerSettings:
   XboxOneSplashScreen: {fileID: 0}
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
-  XboxOneXTitleMemory: 8
   xboxOneScriptCompiler: 0
   vrEditorSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Collab: 1
+    UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 
-  projectName: 
+  projectName: Space Shooter FREE
   organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

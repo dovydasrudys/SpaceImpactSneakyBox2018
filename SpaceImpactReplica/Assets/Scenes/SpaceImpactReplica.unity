@@ -616,8 +616,8 @@ GameObject:
   - component: {fileID: 685648570}
   - component: {fileID: 685648569}
   - component: {fileID: 685648568}
-  - component: {fileID: 685648571}
   - component: {fileID: 685648572}
+  - component: {fileID: 685648571}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -680,7 +680,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: d794a0ecffd996a459e7765a4d2110e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6d9e7337b90b9e4ba6d44379335a759, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -698,7 +698,7 @@ Transform:
   m_GameObject: {fileID: 685648567}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -8.15, y: 0.02, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 29974660}
   m_Father: {fileID: 0}
@@ -720,7 +720,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.94, y: 3.47}
+    oldSize: {x: 2.048, y: 2.048}
     newSize: {x: 4.81, y: 7.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -728,54 +728,70 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.48999998, y: -1.685}
-      - {x: 0.51, y: -1.615}
-      - {x: 0.59, y: -1.4549999}
-      - {x: 1.5999999, y: -1.4549999}
-      - {x: 1.66, y: -1.4449999}
-      - {x: 1.77, y: -1.3149999}
-      - {x: 1.9699999, y: -0.92499995}
-      - {x: 1.9699999, y: -0.775}
-      - {x: 1.88, y: -0.66499996}
-      - {x: 1.3299999, y: -0.195}
-      - {x: 0.94, y: 0.155}
-      - {x: 0.66999996, y: 0.375}
-      - {x: 0.63, y: 0.505}
-      - {x: 0.65, y: 0.675}
-      - {x: 0.64, y: 0.705}
-      - {x: 0.57, y: 0.775}
-      - {x: 0.44, y: 0.835}
-      - {x: 0.37, y: 0.835}
-      - {x: 0.35999998, y: 0.965}
-      - {x: 0.34, y: 1.155}
-      - {x: 0.29, y: 1.285}
-      - {x: 0.17, y: 1.535}
-      - {x: 0.099999994, y: 1.645}
-      - {x: 0.02, y: 1.735}
-      - {x: -0.03, y: 1.735}
-      - {x: -0.08, y: 1.665}
-      - {x: -0.16, y: 1.555}
-      - {x: -0.22999999, y: 1.415}
-      - {x: -0.32999998, y: 1.1949999}
-      - {x: -0.39999998, y: 0.835}
-      - {x: -0.52, y: 0.815}
-      - {x: -0.65999997, y: 0.72499996}
-      - {x: -0.65, y: 0.53499997}
-      - {x: -0.63, y: 0.42499998}
-      - {x: -1.0799999, y: 0.024999999}
-      - {x: -1.9399999, y: -0.715}
-      - {x: -1.9699999, y: -0.765}
-      - {x: -1.9699999, y: -0.945}
-      - {x: -1.73, y: -1.385}
-      - {x: -1.62, y: -1.4649999}
-      - {x: -1.56, y: -1.4649999}
-      - {x: -1.55, y: -1.4549999}
-      - {x: -0.59999996, y: -1.4549999}
-      - {x: -0.59, y: -1.4649999}
-      - {x: -0.53999996, y: -1.495}
-      - {x: -0.52, y: -1.635}
-      - {x: -0.44, y: -1.735}
-      - {x: 0.42, y: -1.735}
+    - - {x: 0.128, y: -0.776}
+      - {x: 0.328, y: -0.82400006}
+      - {x: 0.37600002, y: -0.82400006}
+      - {x: 0.49600002, y: -0.73600006}
+      - {x: 0.448, y: -0.632}
+      - {x: 0.36, y: -0.49600002}
+      - {x: 0.416, y: -0.42400002}
+      - {x: 0.37600002, y: -0.30400002}
+      - {x: 0.42400002, y: -0.28800002}
+      - {x: 0.47200003, y: -0.344}
+      - {x: 0.66400003, y: -0.384}
+      - {x: 0.73600006, y: -0.36800003}
+      - {x: 0.92, y: -0.4}
+      - {x: 0.92800003, y: -0.37600002}
+      - {x: 0.96000004, y: -0.23200001}
+      - {x: 0.96000004, y: -0.15200001}
+      - {x: 0.768, y: -0.032}
+      - {x: 0.72800004, y: 0.104}
+      - {x: 0.67200005, y: 0.28}
+      - {x: 0.60800004, y: 0.28800002}
+      - {x: 0.504, y: 0.104}
+      - {x: 0.432, y: 0.15200001}
+      - {x: 0.44000003, y: 0.264}
+      - {x: 0.42400002, y: 0.28800002}
+      - {x: 0.2, y: 0.35200003}
+      - {x: 0.16000001, y: 0.33600003}
+      - {x: 0.096, y: 0.512}
+      - {x: 0.080000006, y: 0.60800004}
+      - {x: 0.032, y: 0.8}
+      - {x: 0.008, y: 0.82400006}
+      - {x: -0.016, y: 0.82400006}
+      - {x: -0.032, y: 0.79200006}
+      - {x: -0.136, y: 0.35200003}
+      - {x: -0.2, y: 0.35200003}
+      - {x: -0.42400002, y: 0.28800002}
+      - {x: -0.448, y: 0.224}
+      - {x: -0.42400002, y: 0.136}
+      - {x: -0.592, y: 0.14400001}
+      - {x: -0.6, y: 0.256}
+      - {x: -0.60800004, y: 0.28}
+      - {x: -0.68, y: 0.272}
+      - {x: -0.712, y: 0.112}
+      - {x: -0.70400006, y: -0.016}
+      - {x: -0.92800003, y: -0.120000005}
+      - {x: -0.96000004, y: -0.16800001}
+      - {x: -0.96000004, y: -0.2}
+      - {x: -0.92800003, y: -0.224}
+      - {x: -0.92800003, y: -0.37600002}
+      - {x: -0.92, y: -0.4}
+      - {x: -0.832, y: -0.39200002}
+      - {x: -0.70400006, y: -0.37600002}
+      - {x: -0.57600003, y: -0.37600002}
+      - {x: -0.48000002, y: -0.33600003}
+      - {x: -0.35200003, y: -0.33600003}
+      - {x: -0.40800002, y: -0.37600002}
+      - {x: -0.37600002, y: -0.504}
+      - {x: -0.48800004, y: -0.712}
+      - {x: -0.48800004, y: -0.72800004}
+      - {x: -0.432, y: -0.776}
+      - {x: -0.36, y: -0.82400006}
+      - {x: -0.120000005, y: -0.72}
+      - {x: -0.128, y: -0.776}
+      - {x: -0.032, y: -0.808}
+      - {x: 0.112, y: -0.79200006}
 --- !u!50 &685648572
 Rigidbody2D:
   serializedVersion: 4
@@ -990,6 +1006,7 @@ GameObject:
   - component: {fileID: 698304658}
   - component: {fileID: 698304660}
   - component: {fileID: 698304659}
+  - component: {fileID: 698304661}
   m_Layer: 0
   m_Name: Bg2
   m_TagString: Untagged
@@ -1065,6 +1082,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &698304661
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698304657}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f66985a9f588bcd49a9994d67a801775, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &774532458
 Prefab:
   m_ObjectHideFlags: 0
@@ -1171,12 +1205,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -1451,12 +1485,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -1606,6 +1640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: {fileID: 1986652244363940, guid: 3c5ceee6ac12fde4dbb335e2ba2edd97, type: 2}
   enemyType2: {fileID: 1934726567216790, guid: 3f628b5844c4f084b847dd01a9eddbb1, type: 2}
+  enemyType3: {fileID: 1986652244363940, guid: 6269f4446d34f394bb76ce9a26582806, type: 2}
   boss: {fileID: 1294311217586350, guid: 8fa4f604ea841cf43b495c4cf4c3632b, type: 2}
   prize: {fileID: 1283299487194934, guid: b5132ab1811aeda45a682c39c1e3598e, type: 2}
   spawnTimeIntervals: 10
@@ -3028,7 +3063,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4008865712401504, guid: b07decda08299fd45994eb9837454592, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 21.740015
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4008865712401504, guid: b07decda08299fd45994eb9837454592, type: 2}
       propertyPath: m_LocalPosition.z

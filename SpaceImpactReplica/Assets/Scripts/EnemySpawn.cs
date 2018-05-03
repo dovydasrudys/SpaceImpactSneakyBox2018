@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemySpawn : MonoBehaviour {
     public GameObject enemyType;
     public GameObject enemyType2;
+    public GameObject enemyType3;
     public GameObject boss;
     public GameObject prize;
     public int spawnTimeIntervals;
@@ -35,7 +36,7 @@ public class EnemySpawn : MonoBehaviour {
             {
                 //if (timer >= spawnTimeIntervals)
                 //{
-                    SpawnEnemy(chooseEnemyType(enemyType,enemyType2));
+                    SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3));
                     timer = 0;
                     enemiesSpawned++;
                 //}
@@ -55,33 +56,46 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-    GameObject chooseEnemyType(GameObject type1, GameObject type2)
+    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3)
     {
-        if (Random.Range(1, 3) == 1)
-            return type1;
-        return type2;
+        int var = Random.Range(1, 4);
+        switch (var)
+        {
+            case 1:
+                return type1;
+            case 2:
+                return type2;
+            default:
+                return type3;
+        }
     }
     void SpawnEnemy(GameObject type)
     {
+        GameObject typ = type;
+        if(typ == enemyType3)
+        {
+            Instantiate(type, new Vector3(10, 4), transform.rotation);
+            typ = enemyType;
+        }
         int spawnLocation = Random.Range(-4, 0);
         int spawnOption = Random.Range(1, 3);
 
         if (spawnOption == 1)
         {
             for (int i = 0; i < 5; i++)
-                Instantiate(type, new Vector3(12.5f-i, spawnLocation + i+0.5f), transform.rotation);
+                Instantiate(typ, new Vector3(12.5f-i, spawnLocation + i+0.5f), transform.rotation);
         }
 
         else if (spawnOption == 2)
         {
             for (int i = 0; i < 3; i++)
-                Instantiate(type, new Vector3(10, spawnLocation + (1+i+0.5f)), transform.rotation);
+                Instantiate(typ, new Vector3(10, spawnLocation + (1+i+0.5f)), transform.rotation);
         }
 
         else if (spawnOption == 3)
         {
             for (int i = 0; i < 5; i++)
-                Instantiate(type, new Vector3(10 +i, spawnLocation + i+0.5f), transform.rotation);
+                Instantiate(typ, new Vector3(10 +i, spawnLocation + i+0.5f), transform.rotation);
         }        
 
     }
