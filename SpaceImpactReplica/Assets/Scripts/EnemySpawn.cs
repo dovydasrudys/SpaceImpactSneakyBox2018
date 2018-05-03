@@ -20,7 +20,8 @@ public class EnemySpawn : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {        
+    void Start () {
+        Time.timeScale = 1f;
         transform.Rotate(new Vector3(0, 0, -90));
         timer = 9;
 	}

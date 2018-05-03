@@ -21,7 +21,7 @@ public class Enemy2Behaviour : MonoBehaviour {
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform; //target the player
-        yDifferenceGoal = player.position.y - transform.position.y;
+        yDifferenceGoal = 0 - transform.position.y;
     }
 
     private void Update()
