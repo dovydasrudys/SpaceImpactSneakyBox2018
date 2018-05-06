@@ -10,6 +10,8 @@ public class DeathMenu : MonoBehaviour {
     public GameObject deathMenu;
     public GameObject GameControl;
     public Text lvlComplete;
+    public Text lvlFail;
+    public GameObject WinMenu;
     public int HowManyBosses;
     string bbd;
 
@@ -34,17 +36,18 @@ public class DeathMenu : MonoBehaviour {
         {
             deathMenu.SetActive(true);
             Time.timeScale = 0;
-            lvlComplete.text = "YOU DIED!"+"\n"+"Your score: " + player.maxPoints;
-            GameObject.FindGameObjectWithTag("ProceedButton").SetActive(false);
-            GameObject.FindGameObjectWithTag("PlayButton").SetActive(true);
+            lvlFail.text = /*"YOU DIED!"+"\n"+*/"Your score: " + player.maxPoints;
+            //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(false);
+            //GameObject.FindGameObjectWithTag("PlayButton").SetActive(true);
         }
         if(GameControl.GetComponent<EnemySpawn>().bossesBeaten == HowManyBosses)
         {
-            deathMenu.SetActive(true);
+            //deathMenu.SetActive(true);
             Time.timeScale = 0;
-            lvlComplete.text = "LEVEL COMPLETED! \nYour score: " +  player.maxPoints;
-            GameObject.FindGameObjectWithTag("PlayButton").SetActive(false);
-            GameObject.FindGameObjectWithTag("ProceedButton").SetActive(true);
+            lvlComplete.text =/* "LEVEL COMPLETED! \n*/"Your score: " +  player.maxPoints;
+            WinMenu.SetActive(true);
+            //GameObject.FindGameObjectWithTag("PlayButton").SetActive(false);
+            //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(true);
         }
     }
     public void LoadScene(string scene)
