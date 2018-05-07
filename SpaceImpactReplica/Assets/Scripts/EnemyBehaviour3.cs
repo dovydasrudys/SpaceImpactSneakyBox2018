@@ -7,7 +7,7 @@ public class EnemyBehaviour3 : MonoBehaviour {
 
     float timer;
     public int pointsDropped = 150;
-    public float health = 150f;
+    public float health = 500f;
     public float firingRate = 0.5f;
     public float shotsPerSecond = 2f;
     public float projectileSpeed = 5f;
