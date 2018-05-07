@@ -50,7 +50,7 @@ public class EnemySpawn : MonoBehaviour {
             if (SpawnBoss && timer >= spawnTimeIntervals)
             {
                 SpawnBoss = false;
-                Instantiate(boss, new Vector3(5.5f, 0f), boss.transform.rotation);
+                Instantiate(boss, new Vector3(12f, 0f), boss.transform.rotation);
                 healthSlider.gameObject.SetActive(true);
                 effectSlider.gameObject.SetActive(true);
             }

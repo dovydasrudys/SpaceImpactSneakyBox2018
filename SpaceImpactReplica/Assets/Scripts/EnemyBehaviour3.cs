@@ -23,7 +23,7 @@ public class EnemyBehaviour3 : MonoBehaviour {
     }
 
     private void Update() {
-        transform.Translate(Vector2.down * Time.deltaTime * -movementSpeed);
+        transform.Translate(Vector2.down * Time.deltaTime * movementSpeed);
         timer += Time.deltaTime;
         if (timer > shotsPerSecond) {
             Fire();

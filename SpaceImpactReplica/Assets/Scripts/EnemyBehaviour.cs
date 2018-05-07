@@ -13,6 +13,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public float projectileSpeed = 5f;
     public float movementSpeed = 2f;
     public float chargeBarValue = 10;
+    public GameObject explosion;
     public GameObject Drop1;
     public GameObject projectile;
     
@@ -37,11 +38,14 @@ public class EnemyBehaviour : MonoBehaviour {
             {
                 FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
                 test.value += chargeBarValue;
+
                 if (Random.Range(1f, 100f) <= 20f)
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(Drop1, position, transform.rotation);
                 }
+
+                Instantiate(explosion, transform.position, transform.rotation);
             }
 
             Destroy(gameObject);

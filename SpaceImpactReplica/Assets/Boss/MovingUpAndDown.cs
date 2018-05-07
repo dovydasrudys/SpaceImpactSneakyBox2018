@@ -18,7 +18,6 @@ public class MovingUpAndDown : MonoBehaviour {
         ymax = upEdge.x;
     }
     void FixedUpdate() {
-
         if (moveUp) {
             transform.position += Vector3.up * speed * Time.deltaTime;
         } else {

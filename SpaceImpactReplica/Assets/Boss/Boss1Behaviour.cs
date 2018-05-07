@@ -82,6 +82,11 @@ public class Boss1Behaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (transform.position.x > 5.5)
+        {
+            transform.Translate(new Vector2(0, 0.03f));
+            return;
+        }
         timer1 += Time.deltaTime;
         if (timer1 > restTime) {
             if (doAction) {
