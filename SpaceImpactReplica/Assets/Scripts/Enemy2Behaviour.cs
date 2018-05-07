@@ -16,6 +16,9 @@ public class Enemy2Behaviour : MonoBehaviour {
     public float smoothTime = 10.0f;
     private Vector3 smoothVelocity = Vector3.zero;
     float yDifferenceGoal;
+    public GameObject explosion;
+    public GameObject Drop1;
+    public GameObject TripleShot;
 
 
     private void Start()
@@ -68,7 +71,18 @@ public class Enemy2Behaviour : MonoBehaviour {
             FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
             Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
             test.value += chargeBarValue;
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+            if (Random.Range(1f, 100f) <= 20f)
+            {
+                Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                Instantiate(Drop1, position, transform.rotation);
+            }
+            if (Random.Range(1f, 100f) > 95f)
+            {
+                Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                Instantiate(TripleShot, position, TripleShot.transform.rotation);
+            }
         }
 
     }

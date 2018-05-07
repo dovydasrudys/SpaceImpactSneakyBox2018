@@ -15,6 +15,7 @@ public class Boss1Behaviour : MonoBehaviour {
     public GameObject position2;
     public float shotsPerSecond = 2f;
     public float restTime = 8f;
+    public GameObject explosion;
 
 
     float timer = 0;
@@ -121,6 +122,7 @@ public class Boss1Behaviour : MonoBehaviour {
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().bossesBeaten++;
             Instantiate(prize, new Vector3(8, 0), prize.transform.rotation);
             Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation).transform.localScale += new Vector3(10, 10, 10);
         }
     }
 }

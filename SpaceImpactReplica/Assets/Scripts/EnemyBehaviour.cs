@@ -15,6 +15,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public float chargeBarValue = 10;
     public GameObject explosion;
     public GameObject Drop1;
+    public GameObject TripleShot;
     public GameObject projectile;
     
 
@@ -43,6 +44,11 @@ public class EnemyBehaviour : MonoBehaviour {
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(Drop1, position, transform.rotation);
+                }
+                if (Random.Range(1f, 100f) > 95f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(TripleShot, position, TripleShot.transform.rotation);
                 }
 
                 Instantiate(explosion, transform.position, transform.rotation);

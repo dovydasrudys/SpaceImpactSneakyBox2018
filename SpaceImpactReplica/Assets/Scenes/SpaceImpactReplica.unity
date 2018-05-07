@@ -1259,7 +1259,6 @@ GameObject:
   - component: {fileID: 685648568}
   - component: {fileID: 685648572}
   - component: {fileID: 685648571}
-  - component: {fileID: 685648573}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -1287,6 +1286,7 @@ MonoBehaviour:
   maxPoints: 0
   projectile: {fileID: 1931636397207846, guid: cc7e897e25af09f4885c12c765e88521, type: 2}
   ulti: {fileID: 29974659}
+  explosion: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01, type: 2}
   isDead: 0
 --- !u!212 &685648569
 SpriteRenderer:
@@ -1452,23 +1452,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!95 &685648573
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 685648567}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c561d15e724454c40a310e50746e1bcb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &693688649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,6 +2946,7 @@ GameObject:
   - component: {fileID: 961687941}
   - component: {fileID: 961687942}
   - component: {fileID: 961687943}
+  - component: {fileID: 961687944}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: GameControl
@@ -3000,7 +2984,7 @@ MonoBehaviour:
   boss: {fileID: 1294311217586350, guid: 8fa4f604ea841cf43b495c4cf4c3632b, type: 2}
   prize: {fileID: 1283299487194934, guid: b5132ab1811aeda45a682c39c1e3598e, type: 2}
   spawnTimeIntervals: 10
-  enemiesSpawned: 4
+  enemiesSpawned: 0
   SpawnEnemies: 1
   SpawnBoss: 0
   bossesBeaten: 0
@@ -3020,6 +3004,86 @@ MonoBehaviour:
   scoreBox: {fileID: 1562737529}
   player: {fileID: 685648567}
   maxPoints: 0
+--- !u!82 &961687944
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 961687940}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4d25170178d6d614891ff0b8068fba2f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &980227237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,7 +3998,7 @@ MonoBehaviour:
   lvlComplete: {fileID: 1253824680}
   lvlFail: {fileID: 2132287984}
   WinMenu: {fileID: 817179337}
-  HowManyBosses: 1
+  HowManyBosses: 3
 --- !u!1 &1212212681
 GameObject:
   m_ObjectHideFlags: 0

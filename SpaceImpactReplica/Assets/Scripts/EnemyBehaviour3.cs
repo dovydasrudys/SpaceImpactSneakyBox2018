@@ -14,6 +14,9 @@ public class EnemyBehaviour3 : MonoBehaviour {
     public float movementSpeed = 2f;
     public float chargeBarValue = 10;
     public GameObject bomb;
+    public GameObject explosion;
+    public GameObject Drop1;
+    public GameObject TripleShot;
 
     private void Fire() {
         Vector3 position = transform.position + new Vector3(1f, 0f);
@@ -36,6 +39,17 @@ public class EnemyBehaviour3 : MonoBehaviour {
             {
                 FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
                 test.value += chargeBarValue;
+                Instantiate(explosion, transform.position, transform.rotation).transform.localScale += new Vector3(4, 4, 4);
+                if (Random.Range(1f, 100f) <= 20f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(Drop1, position, transform.rotation);
+                }
+                if (Random.Range(1f, 100f) > 95f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(TripleShot, position, TripleShot.transform.rotation);
+                }
             }
             Destroy(gameObject);
         }

@@ -34,6 +34,7 @@ TagManager:
   - Effect
   - Bomb
   - Enemy3
+  - TripleShot
   layers:
   - Default
   - TransparentFX

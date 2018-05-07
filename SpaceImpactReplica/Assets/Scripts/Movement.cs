@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+    //public AudioClip laserSound;
+    AudioSource source;
+    bool x3Activated = false;
+    float x3Timer;
 
     public float speed;
     public float health = 200f;
@@ -18,6 +22,7 @@ public class Movement : MonoBehaviour
     Slider healthbar;
     public GameObject projectile;
     public GameObject ulti;
+    public GameObject explosion;
 
     Vector3 movement = new Vector3();
     float h;
@@ -28,7 +33,9 @@ public class Movement : MonoBehaviour
         special = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
         healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
         projectile.GetComponent<Projectile>().damage = 200f;
+        //source = GetComponent<AudioSource>();
     }
+
 
     void FixedUpdate()
     {
@@ -40,10 +47,17 @@ public class Movement : MonoBehaviour
     void FireAtSpecifiedRate()
     {
         timer += Time.deltaTime;
+        x3Timer += Time.deltaTime;
         if (timer > secondsPerShot)
         {
-            FireThree();
+            Fire();
             timer = 0;
+            source.Play();
+        }
+        if (x3Activated)
+        {
+            if (x3Timer > 10)
+                x3Activated = false;
         }
     }
 
@@ -76,6 +90,7 @@ public class Movement : MonoBehaviour
             health -= missile.GetDamage();
             healthbar.value -= missile.GetDamage();
             missile.Hit();
+            Instantiate(explosion, collision.gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
         } else if (collision.gameObject.tag == "Boss") {
             health -= 300;
             healthbar.value -= 300;  
@@ -98,6 +113,12 @@ public class Movement : MonoBehaviour
             healthbar.value += 50;
             if (health > maxHealth)
                 health = maxHealth;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "TripleShot")
+        {
+            x3Activated = true;
+            x3Timer = 0;
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Bomb")
@@ -139,9 +160,15 @@ public class Movement : MonoBehaviour
     }
     private void Fire()
     {
+        if(x3Activated)
+        {
+            FireThree();
+            return;
+        }
         Vector3 position = transform.position + new Vector3(0.8f, 0f);
         GameObject missile = Instantiate(projectile, position, transform.rotation/*Quaternion.identity*/) as GameObject;
         missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        //source.PlayOneShot(laserSound, 100);
     }
     private void FireThree()
     {
