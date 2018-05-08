@@ -14,6 +14,7 @@ public class ScoreDisplay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        scoreBox.text = player.GetComponent<Movement>().points.ToString();
+        if(player)
+            scoreBox.text = player.GetComponent<Movement>().points.ToString();
 	}
 }

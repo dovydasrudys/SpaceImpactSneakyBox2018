@@ -35,6 +35,14 @@ TagManager:
   - Bomb
   - Enemy3
   - TripleShot
+  - EnemyBulletPool
+  - PlayerBulletPool
+  - BombPool
+  - EnemyPool1
+  - EnemyPool2
+  - EnemyPool3
+  - BossBulletPool
+  - BossProjectile
   layers:
   - Default
   - TransparentFX

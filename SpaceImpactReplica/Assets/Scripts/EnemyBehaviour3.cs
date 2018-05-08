@@ -8,21 +8,28 @@ public class EnemyBehaviour3 : MonoBehaviour {
     float timer;
     public int pointsDropped = 150;
     public float health = 500f;
+    float savedHealth;
     public float firingRate = 0.5f;
     public float shotsPerSecond = 2f;
     public float projectileSpeed = 5f;
     public float movementSpeed = 2f;
     public float chargeBarValue = 10;
-    public GameObject bomb;
+    GameObject player;
     public GameObject explosion;
     public GameObject Drop1;
     public GameObject TripleShot;
+    GameObject bulletPool;
+    ObjectPooler bulletPooler;
 
-    private void Fire() {
-        Vector3 position = transform.position + new Vector3(1f, 0f);
-        //Instantiate(bomb, position, transform.rotation/*Quaternion.identity*/);
-        GameObject rocket = Instantiate(bomb);
-        rocket.transform.position = new Vector2(transform.position.x + 0.5f, transform.position.y);
+    private void Start()
+    {
+        bulletPool = GameObject.FindGameObjectWithTag("BombPool");
+        bulletPooler = bulletPool.GetComponent<ObjectPooler>();
+        savedHealth = health;
+    }
+    private void Fire()
+    {
+        bulletPooler.GetPooledObject(gameObject.transform.position).transform.position = new Vector2(transform.position.x + 0.5f, transform.position.y);
     }
 
     private void Update() {
@@ -51,7 +58,7 @@ public class EnemyBehaviour3 : MonoBehaviour {
                     Instantiate(TripleShot, position, TripleShot.transform.rotation);
                 }
             }
-            Destroy(gameObject);
+            Destroy();
         }
     }
 
@@ -59,7 +66,8 @@ public class EnemyBehaviour3 : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "PlayerProjectile") {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
-            ReceiveDamage(missile.GetDamage());            
+            player = GameObject.FindWithTag("Player");
+            ReceiveDamage(player.GetComponent<Movement>().damage);
             missile.Hit();
         }
         else if (collision.gameObject.tag == "Player")
@@ -80,5 +88,10 @@ public class EnemyBehaviour3 : MonoBehaviour {
         if (transform.position.x < -9 || Mathf.Abs(transform.position.y) > 5)
             return true;
         return false;
+    }
+    void Destroy()
+    {
+        gameObject.SetActive(false);
+        health = savedHealth;
     }
 }

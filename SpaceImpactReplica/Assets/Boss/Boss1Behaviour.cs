@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Boss1Behaviour : MonoBehaviour {
+public class Boss1Behaviour : MonoBehaviour
+{
 
     public float hitPoints;
 
@@ -15,7 +16,6 @@ public class Boss1Behaviour : MonoBehaviour {
     public GameObject position2;
     public float shotsPerSecond = 2f;
     public float restTime = 8f;
-    public GameObject explosion;
 
 
     float timer = 0;
@@ -31,8 +31,9 @@ public class Boss1Behaviour : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start() {
-        
+    void Start()
+    {
+
         effectSlider = GameObject.FindGameObjectWithTag("Effect").GetComponent<Slider>();
         healthSlider = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
         healthSlider.maxValue = hitPoints;
@@ -40,20 +41,25 @@ public class Boss1Behaviour : MonoBehaviour {
         effectSlider.maxValue = healthSlider.value;
         effectSlider.value = healthSlider.value;
     }
-    void TakeDamage() {        
+    void TakeDamage()
+    {
         float bound = 0.5f;
         timer2 += Time.deltaTime;
-        if (timer2 >= bound) {
+        if (timer2 >= bound)
+        {
             timer2 = 0;
             healthSlider.value -= specialAttackDmg;
             hitPoints -= specialAttackDmg;
         }
     }
 
-    private void FirstAttack() {
-        if (doAction) { 
+    private void FirstAttack()
+    {
+        if (doAction)
+        {
             timer += Time.deltaTime;
-            if (timer > shotsPerSecond) {
+            if (timer > shotsPerSecond)
+            {
                 timer = 0;
                 Vector3 _position1 = position1.transform.position;
                 GameObject missle = Instantiate(projectile, _position1, transform.rotation/*Quaternion.identity*/) as GameObject;
@@ -63,38 +69,49 @@ public class Boss1Behaviour : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "PlayerProjectile") {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PlayerProjectile")
+        {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
             healthSlider.value -= missile.GetDamage();
             hitPoints -= missile.GetDamage();
             missile.Hit();
-        } if (collision.gameObject.tag == "SpecialMove") {
+        }
+        if (collision.gameObject.tag == "SpecialMove")
+        {
             healthSlider.value -= specialAttackDmg;
             hitPoints -= specialAttackDmg;
             dealDamage = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.tag == "SpecialMove") {
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "SpecialMove")
+        {
             dealDamage = false;
         }
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         if (transform.position.x > 5.5)
         {
             transform.Translate(new Vector2(0, 0.03f));
             return;
         }
         timer1 += Time.deltaTime;
-        if (timer1 > restTime) {
-            if (doAction) {
+        if (timer1 > restTime)
+        {
+            if (doAction)
+            {
                 doAction = false;
                 restTime = 5f;
                 timer1 = 0;
-            } else {
+            }
+            else
+            {
                 doAction = true;
                 restTime = 8f;
                 timer1 = 0;
@@ -102,27 +119,30 @@ public class Boss1Behaviour : MonoBehaviour {
         }
         FirstAttack();
 
-        if (effectSlider.value > healthSlider.value) {
+        if (effectSlider.value > healthSlider.value)
+        {
             timer3 += Time.deltaTime;
-            if (timer3 > 1.5) {
+            if (timer3 > 1.5)
+            {
                 effectSlider.value = healthSlider.value;
                 timer3 = 0f;
             }
         }
 
-        if (dealDamage) {
+        if (dealDamage)
+        {
             TakeDamage();
         }
 
-        if (hitPoints <= 0) {
-            
+        if (hitPoints <= 0)
+        {
+
             GameObject.FindGameObjectWithTag("BossHealth").SetActive(false);
             GameObject.FindGameObjectWithTag("Effect").SetActive(false);
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().SpawnEnemies = true;
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().bossesBeaten++;
             Instantiate(prize, new Vector3(8, 0), prize.transform.rotation);
             Destroy(gameObject);
-            Instantiate(explosion, transform.position, transform.rotation).transform.localScale += new Vector3(10, 10, 10);
         }
     }
 }

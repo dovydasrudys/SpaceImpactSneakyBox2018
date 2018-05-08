@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour {
 
-    private Vector3 _startPosition;
+    public Vector3 _startPosition;
     private Vector3 pos;
     public float MoveSpeed=5f;
     float min = 0f;
@@ -16,9 +16,6 @@ public class Move : MonoBehaviour {
     }
 
     void Update() {
-        //_newPosition = transform.position;
-        //_newPosition.x += Mathf.Sin(Time.time) * Time.deltaTime;
-        //transform.position = _newPosition;
         pos += transform.up * Time.deltaTime * MoveSpeed;
         transform.position = pos + _startPosition + new Vector3(0f, Mathf.Sin(Time.time*2), 0f);
     }

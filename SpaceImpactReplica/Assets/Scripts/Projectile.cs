@@ -9,20 +9,24 @@ public class Projectile : MonoBehaviour {
     private void Update()
     {
         if (isOffScreen())
-            Destroy(gameObject);
+            Destroy();
     }
     public float GetDamage() {
         return damage;
     }
 
     public void Hit() {
-        Destroy(gameObject);
+        Destroy();
     }
     bool isOffScreen()
     {
-        if (Mathf.Abs(transform.position.x) > 9 || Mathf.Abs(transform.position.y) > 5)
+        if (transform.position.x < -9 || transform.position.x > 15)
             return true;
         return false;
+    }
+    void Destroy()
+    {
+        gameObject.SetActive(false);
     }
     
 }

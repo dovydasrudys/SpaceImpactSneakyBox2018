@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isOffScreen())
-            Destroy(gameObject);
+            Destroy();
 	}
 
     bool isOffScreen()
@@ -19,5 +19,9 @@ public class Bomb : MonoBehaviour {
         if (transform.position.x < -9 || Mathf.Abs(transform.position.y) > 5)
             return true;
         return false;
+    }
+    public void Destroy()
+    {
+        gameObject.SetActive(false);
     }
 }

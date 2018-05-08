@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-    //public AudioClip laserSound;
-    AudioSource source;
     bool x3Activated = false;
     float x3Timer;
+    GameObject bulletPool;
+    ObjectPooler bulletPooler;
+
 
     public float speed;
     public float health = 200f;
@@ -17,6 +18,7 @@ public class Movement : MonoBehaviour
     public float projectileSpeed = 5f;
     public int points;
     public int maxPoints = 0;
+    public float damage = 200;
     float timer;
     Slider special;
     Slider healthbar;
@@ -32,8 +34,10 @@ public class Movement : MonoBehaviour
     private void Start() {
         special = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
         healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
-        projectile.GetComponent<Projectile>().damage = 200f;
-        //source = GetComponent<AudioSource>();
+        projectile.GetComponent<Projectile>().damage = damage;
+        bulletPool = GameObject.FindGameObjectWithTag("PlayerBulletPool");
+        bulletPooler = bulletPool.GetComponent<ObjectPooler>();
+        projectile = bulletPooler.pooledObject;
     }
 
 
@@ -52,7 +56,6 @@ public class Movement : MonoBehaviour
         {
             Fire();
             timer = 0;
-            source.Play();
         }
         if (x3Activated)
         {
@@ -109,7 +112,7 @@ public class Movement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy3")
         {
-            EnemyBehaviour3 enemy = collision.gameObject.GetComponent<EnemyBehaviour3>();
+            collision.gameObject.GetComponent<EnemyBehaviour3>();
             health = 0;
             healthbar.value = 0;
         }
@@ -131,7 +134,7 @@ public class Movement : MonoBehaviour
         {
             health = 0;
             healthbar.value = 0;
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Bomb>().Destroy();
         }
         else if (collision.gameObject.tag == "PowerUp")
         {
@@ -141,7 +144,7 @@ public class Movement : MonoBehaviour
                 healthbar.maxValue *= pwup.GetComponent<Powerup>().Health;
                 maxHealth *= pwup.GetComponent<Powerup>().Health;
                 secondsPerShot *= pwup.GetComponent<Powerup>().FiringRate;
-                projectile.GetComponent<Projectile>().damage *= pwup.GetComponent<Powerup>().Damage;
+                damage *= pwup.GetComponent<Powerup>().Damage;
 
                 //FindObjectOfType<Shop>().DestroyPowerUps();
                 //pwup.GetComponent<Powerup>().Hit();
@@ -172,7 +175,7 @@ public class Movement : MonoBehaviour
             return;
         }
         Vector3 position = transform.position + new Vector3(0.8f, 0f);
-        GameObject missile = Instantiate(projectile, position, transform.rotation/*Quaternion.identity*/) as GameObject;
+        GameObject missile = bulletPooler.GetPooledObject(position, transform.rotation);
         missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
         //source.PlayOneShot(laserSound, 100);
     }
@@ -181,11 +184,11 @@ public class Movement : MonoBehaviour
         Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
         Vector3 position2 = transform.position + new Vector3(0.5f, -0.5f);
         Vector3 position3 = transform.position + new Vector3(0.8f, 0f);
-        GameObject missile1 = Instantiate(projectile, position1, transform.rotation/*Quaternion.identity*/) as GameObject;
+        GameObject missile1 = bulletPooler.GetPooledObject(position1, transform.rotation);
         missile1.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
-        GameObject missile2 = Instantiate(projectile, position2, transform.rotation/*Quaternion.identity*/) as GameObject;
+        GameObject missile2 = bulletPooler.GetPooledObject(position2, transform.rotation);
         missile2.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
-        GameObject missile3 = Instantiate(projectile, position3, transform.rotation/*Quaternion.identity*/) as GameObject;
+        GameObject missile3 = bulletPooler.GetPooledObject(position3, transform.rotation);
         missile3.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
     }
 

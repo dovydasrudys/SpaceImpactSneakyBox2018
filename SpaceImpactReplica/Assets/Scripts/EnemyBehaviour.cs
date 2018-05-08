@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour {
     float timer;
     public int pointsDropped = 150;
     public float health = 150f;
+    float savedHealth;
     public float firingRate = 0.5f;
     public float shotsPerSecond = 2f;
     public float projectileSpeed = 5f;
@@ -17,11 +18,19 @@ public class EnemyBehaviour : MonoBehaviour {
     public GameObject Drop1;
     public GameObject TripleShot;
     public GameObject projectile;
-    
+    GameObject bulletPool;
+    ObjectPooler bulletPooler;
 
+    private void Start()
+    {
+        bulletPool = GameObject.FindGameObjectWithTag("EnemyBulletPool");
+        bulletPooler = bulletPool.GetComponent<ObjectPooler>();
+        projectile = bulletPooler.pooledObject;
+        savedHealth = health;
+    }
     private void Fire() {
         Vector3 position = transform.position + new Vector3(-0.8f, 0f);
-        GameObject missle = Instantiate(projectile, position, transform.rotation/*Quaternion.identity*/) as GameObject;
+        GameObject missle = bulletPooler.GetPooledObject(position, transform.rotation);
         missle.GetComponent<Rigidbody2D>().velocity = new Vector3(-projectileSpeed, 0f);
     }
 
@@ -54,7 +63,7 @@ public class EnemyBehaviour : MonoBehaviour {
                 Instantiate(explosion, transform.position, transform.rotation);
             }
 
-            Destroy(gameObject);
+            Destroy();
             
         }
     }
@@ -63,7 +72,8 @@ public class EnemyBehaviour : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "PlayerProjectile") {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
-            ReceiveDamage(missile.GetDamage());            
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);            
             missile.Hit();
         }
         else if (collision.gameObject.tag == "Player")
@@ -84,5 +94,10 @@ public class EnemyBehaviour : MonoBehaviour {
         if (transform.position.x < -9 || Mathf.Abs(transform.position.y) > 5)
             return true;
         return false;
+    }
+    void Destroy()
+    {
+        gameObject.SetActive(false);
+        health = savedHealth;
     }
 }
