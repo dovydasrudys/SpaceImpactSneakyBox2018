@@ -45,6 +45,7 @@ public class DeathMenu : MonoBehaviour {
             //deathMenu.SetActive(true);
             Time.timeScale = 0;
             lvlComplete.text =/* "LEVEL COMPLETED! \n*/"Your score: " +  player.maxPoints;
+            PlayerPrefs.SetInt("Level1", player.maxPoints);
             WinMenu.SetActive(true);
             //GameObject.FindGameObjectWithTag("PlayButton").SetActive(false);
             //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(true);
