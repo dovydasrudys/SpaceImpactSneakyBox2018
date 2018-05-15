@@ -180,7 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220c6f30fa1a09840bdd4f422c36364d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2000
+  explosion: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01, type: 2}
+  damage: 200
 --- !u!212 &212294751036830108
 SpriteRenderer:
   m_ObjectHideFlags: 1

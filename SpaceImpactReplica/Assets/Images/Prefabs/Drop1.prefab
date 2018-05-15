@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212486538222429960}
   - component: {fileID: 50363020896311436}
   - component: {fileID: 58351209194043390}
+  - component: {fileID: 114304824156697230}
   m_Layer: 0
   m_Name: Drop1
   m_TagString: HealthUp
@@ -77,6 +78,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4.125
+--- !u!114 &114304824156697230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1561003269203512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357447bb220666f48b08a34aacedc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212486538222429960
 SpriteRenderer:
   m_ObjectHideFlags: 1

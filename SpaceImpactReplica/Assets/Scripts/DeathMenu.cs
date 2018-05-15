@@ -28,24 +28,36 @@ public class DeathMenu : MonoBehaviour {
     void Start () {
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (player.isDead)
         {
             deathMenu.SetActive(true);
             Time.timeScale = 0;
-            lvlFail.text = /*"YOU DIED!"+"\n"+*/"Your score: " + player.maxPoints;
+            if (PlayerPrefs.GetInt("Level1") >= player.maxPoints)
+                lvlFail.text = "Your score: " + player.maxPoints + "\nAll time highscore: " + PlayerPrefs.GetInt("Level1");
+            else
+            {
+                PlayerPrefs.SetInt("Level1", player.maxPoints);
+                lvlFail.text = "New Highscore: " + PlayerPrefs.GetInt("Level1");
+            }
             //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(false);
             //GameObject.FindGameObjectWithTag("PlayButton").SetActive(true);
         }
-        if(GameControl.GetComponent<EnemySpawn>().bossesBeaten == HowManyBosses)
+        if (GameControl.GetComponent<EnemySpawn>().bossesBeaten == HowManyBosses)
         {
             //deathMenu.SetActive(true);
             Time.timeScale = 0;
-            lvlComplete.text =/* "LEVEL COMPLETED! \n*/"Your score: " +  player.maxPoints;
-            PlayerPrefs.SetInt("Level1", player.maxPoints);
+            if (PlayerPrefs.GetInt("Level1") >= player.maxPoints)
+                lvlComplete.text = "Your score: " + player.maxPoints + "\nAll time highscore: " + PlayerPrefs.GetInt("Level1");
+            else
+            {
+                PlayerPrefs.SetInt("Level1", player.maxPoints);
+                lvlComplete.text = "New Highscore: " + PlayerPrefs.GetInt("Level1");
+            }
             WinMenu.SetActive(true);
             //GameObject.FindGameObjectWithTag("PlayButton").SetActive(false);
             //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(true);

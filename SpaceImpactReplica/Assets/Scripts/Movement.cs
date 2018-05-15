@@ -93,7 +93,6 @@ public class Movement : MonoBehaviour
             health -= missile.GetDamage();
             healthbar.value -= missile.GetDamage();
             missile.Hit();
-            Instantiate(explosion, collision.gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
         } else if (collision.gameObject.tag == "Boss") {
             health -= 300;
             healthbar.value -= 300;  

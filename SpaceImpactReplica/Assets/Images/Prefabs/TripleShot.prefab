@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212592670040823516}
   - component: {fileID: 50915339922262024}
   - component: {fileID: 60262390653630668}
+  - component: {fileID: 114745514995183802}
   m_Layer: 0
   m_Name: TripleShot
   m_TagString: TripleShot
@@ -111,6 +112,17 @@ PolygonCollider2D:
       - {x: 0.33499998, y: -1.735}
       - {x: 0.66499996, y: -1.385}
       - {x: 0.66499996, y: -1.365}
+--- !u!114 &114745514995183802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146025557343332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357447bb220666f48b08a34aacedc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212592670040823516
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -120,6 +132,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -135,6 +148,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
