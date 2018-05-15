@@ -916,6 +916,82 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224033726773155906, guid: 9f6278a2687fd2244bf4ca47584ad0cf,
     type: 2}
   m_PrefabInternal: {fileID: 1891466710}
+--- !u!1 &294535249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 294535250}
+  - component: {fileID: 294535252}
+  - component: {fileID: 294535251}
+  m_Layer: 5
+  m_Name: Price
+  m_TagString: Price
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &294535250
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294535249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1159595619}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 180, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &294535251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294535249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'PICK YOUR UPGRADE!
+
+    1000 EACH!'
+--- !u!222 &294535252
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294535249}
 --- !u!1 &427897638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,7 +1757,7 @@ MonoBehaviour:
   projectileSpeed: 5
   points: 0
   maxPoints: 0
-  damage: 200
+  damage: 2000
   projectile: {fileID: 1931636397207846, guid: cc7e897e25af09f4885c12c765e88521, type: 2}
   ulti: {fileID: 29974659}
   explosion: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01, type: 2}
@@ -2112,7 +2188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f17f29d5866a8c4e9a661ee383f95b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb4a54d40a078014181b3f23129dc92c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2534,7 +2610,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f17f29d5866a8c4e9a661ee383f95b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb4a54d40a078014181b3f23129dc92c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3436,7 +3512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 1294311217586350, guid: 8fa4f604ea841cf43b495c4cf4c3632b, type: 2}
   prize: {fileID: 1283299487194934, guid: b5132ab1811aeda45a682c39c1e3598e, type: 2}
-  spawnTimeIntervals: 10
+  spawnTimeIntervals: 8
   enemiesSpawned: 0
   SpawnEnemies: 1
   SpawnBoss: 0
@@ -4472,6 +4548,7 @@ RectTransform:
   - {fileID: 817179338}
   - {fileID: 82436708}
   - {fileID: 656725124}
+  - {fileID: 294535250}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4525,7 +4602,7 @@ MonoBehaviour:
   lvlComplete: {fileID: 1253824680}
   lvlFail: {fileID: 2132287984}
   WinMenu: {fileID: 817179337}
-  HowManyBosses: 1
+  HowManyBosses: 2
 --- !u!1 &1212212681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6044,8 +6121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -37.8}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0.79, y: -53.55}
+  m_SizeDelta: {x: 158.43, y: 61.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562737529
 MonoBehaviour:
@@ -6059,7 +6136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -15,6 +15,6 @@ public class ScoreDisplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(player)
-            scoreBox.text = player.GetComponent<Movement>().points.ToString();
+            scoreBox.text = "SCORE: " + player.GetComponent<Movement>().maxPoints.ToString() + "\nMoney: " + player.GetComponent<Movement>().points.ToString();
 	}
 }

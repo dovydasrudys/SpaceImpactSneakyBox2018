@@ -43,6 +43,7 @@ TagManager:
   - EnemyPool3
   - BossBulletPool
   - BossProjectile
+  - Price
   layers:
   - Default
   - TransparentFX

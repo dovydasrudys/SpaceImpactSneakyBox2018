@@ -55,7 +55,7 @@ public class EnemySpawn : MonoBehaviour {
                     timer = 0;
                     enemiesSpawned++;
                 //}
-                if (enemiesSpawned == 5)
+                if (enemiesSpawned == 3)
                 {
                     enemiesSpawned = 0;
                     SpawnEnemies = false;
