@@ -467,7 +467,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SpaceImpactReplica 2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1689,6 +1689,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1190991327989384, guid: eb785901954b37a498b72dff1591d6ab, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446945306080104, guid: eb785901954b37a498b72dff1591d6ab, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb785901954b37a498b72dff1591d6ab, type: 2}
   m_IsPrefabParent: 0
@@ -2460,12 +2468,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -2740,12 +2748,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -4836,7 +4844,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: SpaceImpactReplica2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

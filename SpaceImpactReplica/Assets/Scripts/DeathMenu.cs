@@ -21,7 +21,7 @@ public class DeathMenu : MonoBehaviour {
     public void OnRestart()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SpaceImpactReplica");
+        Application.LoadLevel(Application.loadedLevel);
 
     }
 
