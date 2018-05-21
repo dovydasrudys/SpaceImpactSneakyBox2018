@@ -12,8 +12,8 @@ public class Movement : MonoBehaviour
 
 
     public float speed;
-    public float health = 200f;
-    public float maxHealth = 200f;
+    public float health;
+    float maxHealth;
     public float secondsPerShot = 2f;
     public float projectileSpeed = 5f;
     public int points;
@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
         bulletPool = GameObject.FindGameObjectWithTag("PlayerBulletPool");
         bulletPooler = bulletPool.GetComponent<ObjectPooler>();
         projectile = bulletPooler.pooledObject;
+        maxHealth = health;
     }
 
 
@@ -105,8 +106,8 @@ public class Movement : MonoBehaviour
         else if (collision.gameObject.tag == "Enemy2")
         {
             Enemy2Behaviour enemy = collision.gameObject.GetComponent<Enemy2Behaviour>();
-            health -= enemy.damage;
-            healthbar.value -= enemy.damage;
+            health = 0;
+            healthbar.value = 0;
             IncreasePoints(collision.gameObject.GetComponent<Enemy2Behaviour>().pointsDropped);
         }
         else if (collision.gameObject.tag == "Enemy3")

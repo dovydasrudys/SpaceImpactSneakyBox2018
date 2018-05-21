@@ -18,11 +18,31 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.tag == "PlayerProjectile" && (collision.gameObject.tag == "Player" || collision.gameObject.tag == "EnemyProjectile" || collision.gameObject.tag == "SpecialMove" || collision.gameObject.tag == "PowerUp" || collision.gameObject.tag == "Bomb" || collision.gameObject.tag == "HealthUp" || collision.gameObject.tag == "TripleShot"))
-            return;
-        if (gameObject.tag == "EnemyProjectile" && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "PlayerProjectile" || collision.gameObject.tag == "SpecialMove" || collision.gameObject.tag == "PowerUp" || collision.gameObject.tag == "Bomb" || collision.gameObject.tag == "Boss" || collision.gameObject.tag == "HealthUp" || collision.gameObject.tag == "TripleShot"))
-            return;
-        Instantiate(explosion, collision.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+        if (gameObject.tag == "PlayerProjectile")
+        {
+            switch (collision.gameObject.tag)
+            {
+                case "Enemy":
+                case "Enemy2":
+                case "Enemy3":
+                case "Boss":
+                    Instantiate(explosion, collision.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (gameObject.tag == "EnemyProjectile")
+        {
+            switch (collision.gameObject.tag)
+            {
+                case "Player":
+                    Instantiate(explosion, collision.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void Hit()

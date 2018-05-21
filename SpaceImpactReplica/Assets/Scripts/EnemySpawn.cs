@@ -25,6 +25,7 @@ public class EnemySpawn : MonoBehaviour {
     GameObject enemyType;
     GameObject enemyType2;
     GameObject enemyType3;
+    public GameObject enemyType4;
 
     // Use this for initialization
     void Start () {
@@ -51,11 +52,11 @@ public class EnemySpawn : MonoBehaviour {
             {
                 //if (timer >= spawnTimeIntervals)
                 //{
-                    SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3));
+                    SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4));
                     timer = 0;
                     enemiesSpawned++;
                 //}
-                if (enemiesSpawned == 3)
+                if (enemiesSpawned > 3)
                 {
                     enemiesSpawned = 0;
                     SpawnEnemies = false;
@@ -71,17 +72,19 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3)
+    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4)
     {
-        int var = Random.Range(0, 4);
+        int var = Random.Range(0, 5);
         switch (var)
         {
             case 1:
                 return type1;
             case 2:
                 return type2;
-            default:
+            case 3:
                 return type3;
+            default:
+                return type4;
         }
     }
     void SpawnEnemy(GameObject type)
@@ -91,6 +94,12 @@ public class EnemySpawn : MonoBehaviour {
         {
             EnemyPooler3.GetPooledObject(new Vector3(10, 4), transform.rotation);
             typ = enemyType;
+        }
+        if (typ == enemyType4)
+        {
+            Instantiate(type, new Vector3(10, 4), typ.transform.rotation);
+            SpawnEnemies = false;
+            return;
         }
         int spawnLocation = Random.Range(-4, 0);
         int spawnOption = Random.Range(1, 3);
