@@ -2528,12 +2528,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -2808,12 +2808,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -4670,8 +4670,6 @@ MonoBehaviour:
   GameControl: {fileID: 961687940}
   lvlComplete: {fileID: 1253824680}
   lvlFail: {fileID: 2132287984}
-  WinMenu: {fileID: 817179337}
-  HowManyBosses: 2
 --- !u!1 &1212212681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,7 +5874,7 @@ Prefab:
     - target: {fileID: 114081507528172472, guid: ddd7f5dd020568e4093029dd55e67790,
         type: 2}
       propertyPath: pooledAmount
-      value: 14
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1394176497217620, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
       propertyPath: m_IsActive
@@ -8241,6 +8239,11 @@ Prefab:
     - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114081507528172472, guid: ddd7f5dd020568e4093029dd55e67790,
+        type: 2}
+      propertyPath: pooledAmount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}

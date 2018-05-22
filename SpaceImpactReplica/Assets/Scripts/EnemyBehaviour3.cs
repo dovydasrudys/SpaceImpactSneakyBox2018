@@ -6,14 +6,13 @@ using UnityEngine.UI;
 public class EnemyBehaviour3 : MonoBehaviour {
 
     float timer;
-    public int pointsDropped = 150;
-    public float health = 500f;
+    public int pointsDropped;
+    public float health;
     float savedHealth;
-    public float firingRate = 0.5f;
-    public float shotsPerSecond = 2f;
-    public float projectileSpeed = 5f;
-    public float movementSpeed = 2f;
-    public float chargeBarValue = 10;
+    public float shotsPerSecond;
+    public float projectileSpeed;
+    public float movementSpeed;
+    public float chargeBarValue;
     GameObject player;
     public GameObject Drop1;
     public GameObject TripleShot;

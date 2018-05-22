@@ -349,14 +349,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547dee4d452bd5344acc15e7520bb007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsDropped: 150
+  pointsDropped: 200
   health: 300
-  movementSpeed: 5
+  movementSpeed: 4
   chargeBarValue: 10
   damage: 200
-  wdistance: 10
-  smoothTime: 10
-  explosion: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01, type: 2}
   Drop1: {fileID: 1561003269203512, guid: 8e8248b4a78feca4cbc936ce84c1e3a3, type: 2}
   TripleShot: {fileID: 1146025557343332, guid: a4370ec577fd1754697bd826fe2ebb5b, type: 2}
 --- !u!212 &212349347487168680

@@ -8,16 +8,18 @@ public class Boss1Behaviour : MonoBehaviour
 
     public float hitPoints;
 
-    public float projectileSpeed = 5f;
+    public float projectileSpeed;
     public GameObject prize;
     public GameObject slide;
-    public GameObject projectile;
     public GameObject position1;
     public GameObject position2;
-    public float shotsPerSecond = 2f;
-    public float restTime = 8f;
+    public int pointsDropped;
+    public float shotsPerSecond;
+    public float restTime;
     GameObject explosionPool;
     ObjectPooler explosionPooler;
+    GameObject bulletPool;
+    ObjectPooler bulletPooler;
 
 
     float timer = 0;
@@ -40,6 +42,8 @@ public class Boss1Behaviour : MonoBehaviour
         healthSlider = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
         explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
         explosionPooler = explosionPool.GetComponent<ObjectPooler>();
+        bulletPool = GameObject.FindGameObjectWithTag("BossBulletPool");
+        bulletPooler = bulletPool.GetComponent<ObjectPooler>();
         healthSlider.maxValue = hitPoints;
         healthSlider.value = hitPoints;
         effectSlider.maxValue = healthSlider.value;
@@ -66,9 +70,9 @@ public class Boss1Behaviour : MonoBehaviour
             {
                 timer = 0;
                 Vector3 _position1 = position1.transform.position;
-                GameObject missle = Instantiate(projectile, _position1, transform.rotation/*Quaternion.identity*/) as GameObject;
+                bulletPooler.GetPooledObject(_position1, transform.rotation/*Quaternion.identity*/);
                 Vector3 _position2 = position2.transform.position;
-                Instantiate(projectile, _position2, transform.rotation);
+                bulletPooler.GetPooledObject(_position2, transform.rotation);
             }
         }
     }
@@ -140,7 +144,7 @@ public class Boss1Behaviour : MonoBehaviour
 
         if (hitPoints <= 0)
         {
-
+            FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
             GameObject.FindGameObjectWithTag("BossHealth").SetActive(false);
             GameObject.FindGameObjectWithTag("Effect").SetActive(false);
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().SpawnEnemies = true;

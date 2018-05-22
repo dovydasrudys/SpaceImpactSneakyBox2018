@@ -14,11 +14,11 @@ public class Movement : MonoBehaviour
     public float speed;
     public float health;
     float maxHealth;
-    public float secondsPerShot = 2f;
-    public float projectileSpeed = 5f;
+    public float secondsPerShot;
+    public float projectileSpeed;
     public int points;
     public int maxPoints = 0;
-    public float damage = 200;
+    public float damage;
     float timer;
     Slider special;
     Slider healthbar;

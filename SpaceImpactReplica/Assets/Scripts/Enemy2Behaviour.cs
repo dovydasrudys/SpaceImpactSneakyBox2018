@@ -6,15 +6,13 @@ using UnityEngine.UI;
 public class Enemy2Behaviour : MonoBehaviour {
 
     
-    public int pointsDropped = 150;
-    public float health = 300f;
+    public int pointsDropped;
+    public float health;
     float savedHealth;
-    public float movementSpeed = 2f;
-    public float chargeBarValue = 10;
-    public float damage = 200f;
+    public float movementSpeed;
+    public float chargeBarValue;
+    public float damage;
     GameObject player;
-    public float wdistance = 10f;
-    public float smoothTime = 10.0f;
     float yDifferenceGoal;
     GameObject explosionPool;
     ObjectPooler explosionPooler;

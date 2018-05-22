@@ -689,9 +689,9 @@ MonoBehaviour:
   projectileSpeed: 5
   prize: {fileID: 1283299487194934, guid: b5132ab1811aeda45a682c39c1e3598e, type: 2}
   slide: {fileID: 1785019655834426, guid: 9f6278a2687fd2244bf4ca47584ad0cf, type: 2}
-  projectile: {fileID: 1555382228915402, guid: 4d05015257468254185d83374c544ea2, type: 2}
   position1: {fileID: 1329269016209716}
   position2: {fileID: 1433331879465856}
+  pointsDropped: 500
   shotsPerSecond: 0.4
   restTime: 3
 --- !u!198 &198907836298112774

@@ -11,9 +11,6 @@ public class DeathMenu : MonoBehaviour {
     public GameObject GameControl;
     public Text lvlComplete;
     public Text lvlFail;
-    public GameObject WinMenu;
-    public int HowManyBosses;
-    string bbd;
 
 
     // Use this for initialization
@@ -21,7 +18,7 @@ public class DeathMenu : MonoBehaviour {
     public void OnRestart()
     {
         Time.timeScale = 1f;
-        Application.LoadLevel(Application.loadedLevel);
+        LoadScene("SpaceImpactReplica");
 
     }
 
@@ -46,21 +43,6 @@ public class DeathMenu : MonoBehaviour {
             }
             //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(false);
             //GameObject.FindGameObjectWithTag("PlayButton").SetActive(true);
-        }
-        if (GameControl.GetComponent<EnemySpawn>().bossesBeaten == HowManyBosses)
-        {
-            //deathMenu.SetActive(true);
-            Time.timeScale = 0;
-            if (PlayerPrefs.GetInt("Level1") >= player.maxPoints)
-                lvlComplete.text = "Your score: " + player.maxPoints + "\nAll time highscore: " + PlayerPrefs.GetInt("Level1");
-            else
-            {
-                PlayerPrefs.SetInt("Level1", player.maxPoints);
-                lvlComplete.text = "New Highscore: " + PlayerPrefs.GetInt("Level1");
-            }
-            WinMenu.SetActive(true);
-            //GameObject.FindGameObjectWithTag("PlayButton").SetActive(false);
-            //GameObject.FindGameObjectWithTag("ProceedButton").SetActive(true);
         }
     }
     public void LoadScene(string scene)
