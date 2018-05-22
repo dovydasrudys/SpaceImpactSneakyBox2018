@@ -1772,7 +1772,6 @@ MonoBehaviour:
   damage: 100
   projectile: {fileID: 1931636397207846, guid: cc7e897e25af09f4885c12c765e88521, type: 2}
   ulti: {fileID: 29974659}
-  explosion: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01, type: 2}
   isDead: 0
 --- !u!212 &685648569
 SpriteRenderer:
@@ -2529,12 +2528,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -2809,12 +2808,12 @@ Prefab:
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224502732462341658, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114009082416614848, guid: 2bd44daa083f71647a48d1f643ec8e4c,
         type: 2}
@@ -4960,6 +4959,71 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 940357637}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1001 &1268575350
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.47929937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.6926157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 9.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427540804696358, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394176497217620, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_Name
+      value: ExplosionPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 114081507528172472, guid: ddd7f5dd020568e4093029dd55e67790,
+        type: 2}
+      propertyPath: pooledObject
+      value: 
+      objectReference: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01,
+        type: 2}
+    - target: {fileID: 114081507528172472, guid: ddd7f5dd020568e4093029dd55e67790,
+        type: 2}
+      propertyPath: pooledAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394176497217620, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394176497217620, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+      propertyPath: m_TagString
+      value: ExplosionPool
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ddd7f5dd020568e4093029dd55e67790, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1296627904
 Prefab:
   m_ObjectHideFlags: 0

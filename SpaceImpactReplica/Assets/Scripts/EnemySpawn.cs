@@ -25,6 +25,7 @@ public class EnemySpawn : MonoBehaviour {
     GameObject enemyType;
     GameObject enemyType2;
     GameObject enemyType3;
+    GameObject lastSpawned;
     public GameObject enemyType4;
 
     // Use this for initialization
@@ -89,6 +90,11 @@ public class EnemySpawn : MonoBehaviour {
     }
     void SpawnEnemy(GameObject type)
     {
+        while (type == lastSpawned)
+        {
+            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4);
+        }
+        lastSpawned = type;
         GameObject typ = type;
         if(typ == enemyType3)
         {

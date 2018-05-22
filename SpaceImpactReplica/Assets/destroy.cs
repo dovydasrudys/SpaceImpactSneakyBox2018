@@ -15,6 +15,12 @@ public class destroy : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
         if (timer >= 1)
-            Destroy(gameObject);
+            Destroy();
 	}
+    public void Destroy()
+    {
+        timer = 0;
+        gameObject.transform.localScale = new Vector3(2, 2, 2);
+        gameObject.SetActive(false);
+    }
 }

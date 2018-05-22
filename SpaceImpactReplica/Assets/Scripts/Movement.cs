@@ -24,7 +24,6 @@ public class Movement : MonoBehaviour
     Slider healthbar;
     public GameObject projectile;
     public GameObject ulti;
-    public GameObject explosion;
 
     Vector3 movement = new Vector3();
     float h;
@@ -115,6 +114,13 @@ public class Movement : MonoBehaviour
             collision.gameObject.GetComponent<EnemyBehaviour3>();
             health = 0;
             healthbar.value = 0;
+        }
+        else if (collision.gameObject.tag == "Enemy4")
+        {
+            EnemyBehaviour4 enemy = collision.gameObject.GetComponent<EnemyBehaviour4>();
+            health = 0;
+            healthbar.value = 0;
+            IncreasePoints(collision.gameObject.GetComponent<EnemyBehaviour4>().pointsDropped);
         }
         else if (collision.gameObject.tag == "HealthUp")
         {

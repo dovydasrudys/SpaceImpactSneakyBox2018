@@ -15,16 +15,19 @@ public class EnemyBehaviour3 : MonoBehaviour {
     public float movementSpeed = 2f;
     public float chargeBarValue = 10;
     GameObject player;
-    public GameObject explosion;
     public GameObject Drop1;
     public GameObject TripleShot;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
+    GameObject explosionPool;
+    ObjectPooler explosionPooler;
 
     private void Start()
     {
         bulletPool = GameObject.FindGameObjectWithTag("BombPool");
         bulletPooler = bulletPool.GetComponent<ObjectPooler>();
+        explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
+        explosionPooler = explosionPool.GetComponent<ObjectPooler>();
         savedHealth = health;
     }
     private void Fire()
@@ -46,7 +49,7 @@ public class EnemyBehaviour3 : MonoBehaviour {
             {
                 FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
                 test.value += chargeBarValue;
-                Instantiate(explosion, transform.position, transform.rotation).transform.localScale += new Vector3(4, 4, 4);
+                explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(0,0);
                 if (Random.Range(1f, 100f) <= 20f)
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);

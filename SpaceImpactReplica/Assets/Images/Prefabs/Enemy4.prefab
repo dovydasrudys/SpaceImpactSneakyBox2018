@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 60619012008899640}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Enemy2
+  m_TagString: Enemy4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,6 @@ MonoBehaviour:
   damage: 200
   wdistance: 10
   smoothTime: 10
-  explosion: {fileID: 1956649526355250, guid: 62146a95ae4291842b6bd717e2ac2a01, type: 2}
   Drop1: {fileID: 1561003269203512, guid: 8e8248b4a78feca4cbc936ce84c1e3a3, type: 2}
   TripleShot: {fileID: 1146025557343332, guid: a4370ec577fd1754697bd826fe2ebb5b, type: 2}
   secondsPerShot: 1

@@ -14,18 +14,21 @@ public class EnemyBehaviour : MonoBehaviour {
     public float projectileSpeed = 5f;
     public float movementSpeed = 2f;
     public float chargeBarValue = 10;
-    public GameObject explosion;
     public GameObject Drop1;
     public GameObject TripleShot;
     public GameObject projectile;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
+    GameObject explosionPool;
+    ObjectPooler explosionPooler;
 
     private void Start()
     {
         bulletPool = GameObject.FindGameObjectWithTag("EnemyBulletPool");
         bulletPooler = bulletPool.GetComponent<ObjectPooler>();
         projectile = bulletPooler.pooledObject;
+        explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
+        explosionPooler = explosionPool.GetComponent<ObjectPooler>();
         savedHealth = health;
     }
     private void Fire() {
@@ -60,7 +63,7 @@ public class EnemyBehaviour : MonoBehaviour {
                     Instantiate(TripleShot, position, TripleShot.transform.rotation);
                 }
 
-                Instantiate(explosion, transform.position, transform.rotation);
+                explosionPooler.GetPooledObject(transform.position, transform.rotation).transform.localScale += new Vector3(0,0);
             }
 
             Destroy();

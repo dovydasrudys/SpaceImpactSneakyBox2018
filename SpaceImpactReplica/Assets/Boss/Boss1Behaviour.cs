@@ -16,6 +16,8 @@ public class Boss1Behaviour : MonoBehaviour
     public GameObject position2;
     public float shotsPerSecond = 2f;
     public float restTime = 8f;
+    GameObject explosionPool;
+    ObjectPooler explosionPooler;
 
 
     float timer = 0;
@@ -36,6 +38,8 @@ public class Boss1Behaviour : MonoBehaviour
 
         effectSlider = GameObject.FindGameObjectWithTag("Effect").GetComponent<Slider>();
         healthSlider = GameObject.FindGameObjectWithTag("BossHealth").GetComponent<Slider>();
+        explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
+        explosionPooler = explosionPool.GetComponent<ObjectPooler>();
         healthSlider.maxValue = hitPoints;
         healthSlider.value = hitPoints;
         effectSlider.maxValue = healthSlider.value;
@@ -141,6 +145,7 @@ public class Boss1Behaviour : MonoBehaviour
             GameObject.FindGameObjectWithTag("Effect").SetActive(false);
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().SpawnEnemies = true;
             GameObject.FindGameObjectWithTag("GameControl").GetComponent<EnemySpawn>().bossesBeaten++;
+            explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(5,5);
             Instantiate(prize, new Vector3(8, 0), prize.transform.rotation);
             Destroy(gameObject);
         }

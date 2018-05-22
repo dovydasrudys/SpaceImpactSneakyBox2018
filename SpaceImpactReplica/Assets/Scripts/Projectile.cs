@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject explosion;
     public float damage = 100f;
+    GameObject explosionPool;
+    ObjectPooler explosionPooler;
 
+    private void Start()
+    {
+        explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
+        explosionPooler = explosionPool.GetComponent<ObjectPooler>();
+    }
     private void Update()
     {
         if (isOffScreen())
@@ -23,10 +29,19 @@ public class Projectile : MonoBehaviour
             switch (collision.gameObject.tag)
             {
                 case "Enemy":
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
                 case "Enemy2":
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
                 case "Enemy3":
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
+                case "Enemy4":
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
                 case "Boss":
-                    Instantiate(explosion, collision.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
                     break;
                 default:
                     break;
@@ -37,7 +52,7 @@ public class Projectile : MonoBehaviour
             switch (collision.gameObject.tag)
             {
                 case "Player":
-                    Instantiate(explosion, collision.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
                     break;
                 default:
                     break;
@@ -58,7 +73,6 @@ public class Projectile : MonoBehaviour
     void Destroy()
     {
         gameObject.SetActive(false);
-        transform.position = new Vector3(0, 0, 0);
     }
 
 }

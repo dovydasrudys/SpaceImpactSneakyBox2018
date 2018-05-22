@@ -15,7 +15,6 @@ public class EnemyBehaviour4 : MonoBehaviour {
     GameObject player;
     public float wdistance = 10f;
     public float smoothTime = 10.0f;
-    public GameObject explosion;
     public GameObject Drop1;
     public GameObject TripleShot;
     float timer;
@@ -24,12 +23,16 @@ public class EnemyBehaviour4 : MonoBehaviour {
     int xDir = -5;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
+    GameObject explosionPool;
+    ObjectPooler explosionPooler;
 
 
     private void Start()
     {
         bulletPool = GameObject.FindGameObjectWithTag("EnemyBulletPool1");
         bulletPooler = bulletPool.GetComponent<ObjectPooler>();
+        explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
+        explosionPooler = explosionPool.GetComponent<ObjectPooler>();
         player = GameObject.FindWithTag("Player");
         savedHealth = health;
     }
@@ -84,7 +87,7 @@ public class EnemyBehaviour4 : MonoBehaviour {
         if (collision.gameObject.tag == "PlayerProjectile")
         {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
-            ReceiveDamage(player.GetComponent<Movement>().damage);            
+            ReceiveDamage(player.GetComponent<Movement>().damage);
             missile.Hit();
         }
         else if (collision.gameObject.tag == "Player")
@@ -100,7 +103,7 @@ public class EnemyBehaviour4 : MonoBehaviour {
             FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
             Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
             test.value += chargeBarValue;
-            Instantiate(explosion, transform.position, transform.rotation);
+            explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(2,2);
             if (Random.Range(1f, 100f) <= 20f)
             {
                 Vector3 position = transform.position + new Vector3(0f, -0.8f);

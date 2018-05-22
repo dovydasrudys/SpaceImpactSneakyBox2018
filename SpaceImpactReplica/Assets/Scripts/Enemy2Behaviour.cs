@@ -16,7 +16,8 @@ public class Enemy2Behaviour : MonoBehaviour {
     public float wdistance = 10f;
     public float smoothTime = 10.0f;
     float yDifferenceGoal;
-    public GameObject explosion;
+    GameObject explosionPool;
+    ObjectPooler explosionPooler;
     public GameObject Drop1;
     public GameObject TripleShot;
 
@@ -25,6 +26,8 @@ public class Enemy2Behaviour : MonoBehaviour {
     {
         player = GameObject.FindWithTag("Player");
         yDifferenceGoal = 0 - transform.position.y;
+        explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
+        explosionPooler = explosionPool.GetComponent<ObjectPooler>();
         savedHealth = health;
     }
 
@@ -72,7 +75,7 @@ public class Enemy2Behaviour : MonoBehaviour {
             FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
             Slider test = GameObject.FindGameObjectWithTag("ChargeBar").GetComponent<Slider>();
             test.value += chargeBarValue;
-            Instantiate(explosion, transform.position, transform.rotation);
+            explosionPooler.GetPooledObject(transform.position, transform.rotation);
             Destroy();
             if (Random.Range(1f, 100f) <= 20f)
             {
