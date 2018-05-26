@@ -24,27 +24,16 @@ public class Shop : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timer += Time.deltaTime;
-        if (powerup1.GetComponent<Powerup>().Triggerred || powerup2.GetComponent<Powerup>().Triggerred || powerup3.GetComponent<Powerup>().Triggerred)
-        {
-            DestroyImmediate(powerup1,true);
-            DestroyImmediate(powerup2,true);
-            DestroyImmediate(powerup3,true);
-        }
+
         if(timer > 17)
         {
             price.gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }
-    public void DestroyPowerUps()
-    {
-        DestroyImmediate(powerup1.gameObject);
-        DestroyImmediate(powerup2.gameObject);
-        DestroyImmediate(powerup3.gameObject);
-    }
+    
     static public GameObject getChildGameObject(GameObject fromGameObject, string withName)
     {
-        //Author: Isaac Dart, June-13.
         Transform[] ts = fromGameObject.transform.GetComponentsInChildren<Transform>(true);
         foreach (Transform t in ts) if (t.gameObject.name == withName) return t.gameObject;
         return null;
