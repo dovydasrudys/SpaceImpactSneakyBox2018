@@ -183,6 +183,7 @@ public class Movement : MonoBehaviour
         Vector3 position = transform.position + new Vector3(0.8f, 0f);
         GameObject missile = bulletPooler.GetPooledObject(position, transform.rotation);
         missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        missile.GetComponent<Projectile>().damage = damage;
         //source.PlayOneShot(laserSound, 100);
     }
     private void FireThree()
@@ -192,10 +193,13 @@ public class Movement : MonoBehaviour
         Vector3 position3 = transform.position + new Vector3(0.8f, 0f);
         GameObject missile1 = bulletPooler.GetPooledObject(position1, transform.rotation);
         missile1.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        missile1.GetComponent<Projectile>().damage = damage;
         GameObject missile2 = bulletPooler.GetPooledObject(position2, transform.rotation);
         missile2.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        missile2.GetComponent<Projectile>().damage = damage;
         GameObject missile3 = bulletPooler.GetPooledObject(position3, transform.rotation);
         missile3.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        missile3.GetComponent<Projectile>().damage = damage;
     }
 
 }
