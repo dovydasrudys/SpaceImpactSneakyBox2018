@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212549823308825446}
   - component: {fileID: 114446799569204666}
   - component: {fileID: 50077558648711320}
-  - component: {fileID: 58253897252577910}
+  - component: {fileID: 60290977515236130}
   m_Layer: 0
   m_Name: FiringRateUp
   m_TagString: PowerUp
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1328255436979942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.85, y: -0.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58253897252577910
-CircleCollider2D:
+--- !u!60 &60290977515236130
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,12 +72,53 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.89
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.7, y: 1.78}
+    newSize: {x: 1.7, y: 1.78}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.71999997, y: -0.71}
+      - {x: 0.76, y: -0.68}
+      - {x: 0.78, y: -0.65}
+      - {x: 0.7, y: -0.61}
+      - {x: 0.76, y: -0.48}
+      - {x: 0.84, y: -0.19}
+      - {x: 0.84999996, y: -0.08}
+      - {x: 0.84999996, y: 0.14999999}
+      - {x: 0.81, y: 0.32}
+      - {x: 0.68, y: 0.55}
+      - {x: 0.5, y: 0.74}
+      - {x: 0.21, y: 0.87}
+      - {x: -0.11, y: 0.87}
+      - {x: -0.22999999, y: 0.85999995}
+      - {x: -0.35, y: 0.83}
+      - {x: -0.63, y: 0.64}
+      - {x: -0.72999996, y: 0.52}
+      - {x: -0.84999996, y: 0.28}
+      - {x: -0.84999996, y: -0.19999999}
+      - {x: -0.82, y: -0.29}
+      - {x: -0.79999995, y: -0.48}
+      - {x: -0.78999996, y: -0.65999997}
+      - {x: -0.78, y: -0.7}
+      - {x: -0.66999996, y: -0.72999996}
+      - {x: -0.55, y: -0.65999997}
+      - {x: -0.45999998, y: -0.72999996}
+      - {x: -0.28, y: -0.81}
+      - {x: -0.19, y: -0.84}
+      - {x: 0.19999999, y: -0.84}
+      - {x: 0.32, y: -0.79999995}
+      - {x: 0.55, y: -0.66999996}
+      - {x: 0.63, y: -0.74}
 --- !u!114 &114446799569204666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5f26363232dcb7e49a6b02d5dd968898, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 877ba3e56b1bb02489af58acc0423bfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
