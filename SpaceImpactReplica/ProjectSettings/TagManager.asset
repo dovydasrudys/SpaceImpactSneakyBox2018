@@ -47,6 +47,8 @@ TagManager:
   - EnemyBulletPool1
   - Enemy4
   - ExplosionPool
+  - EPool1
+  - Eenemy
   layers:
   - Default
   - TransparentFX
