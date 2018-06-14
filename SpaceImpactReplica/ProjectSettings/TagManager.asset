@@ -49,6 +49,8 @@ TagManager:
   - ExplosionPool
   - EPool1
   - Eenemy
+  - EPool2
+  - Eenemy2
   layers:
   - Default
   - TransparentFX

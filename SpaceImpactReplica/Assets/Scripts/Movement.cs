@@ -129,6 +129,13 @@ public class Movement : MonoBehaviour
             healthbar.value = 0;
             IncreasePoints(collision.gameObject.GetComponent<Eenemy>().pointsDropped);
         }
+        else if (collision.gameObject.tag == "Eenemy2")
+        {
+            Eenemy2 enemy = collision.gameObject.GetComponent<Eenemy2>();
+            health = 0;
+            healthbar.value = 0;
+            IncreasePoints(collision.gameObject.GetComponent<Eenemy2>().pointsDropped);
+        }
         else if (collision.gameObject.tag == "HealthUp")
         {
             health += 50;

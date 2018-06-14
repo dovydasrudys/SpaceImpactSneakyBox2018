@@ -31,12 +31,14 @@ public class EnemySpawn : MonoBehaviour {
     GameObject EPool1;
     ObjectPooler EPooler1;
     GameObject enemyType5;
-
+    GameObject EPool2;
+    ObjectPooler EPooler2;
+    GameObject enemyType6;
     // Use this for initialization
     void Start () {
         Time.timeScale = 1f;
         transform.Rotate(new Vector3(0, 0, -90));
-        timer = 9;
+        timer = 7;
         EnemyPool1 = GameObject.FindGameObjectWithTag("EnemyPool1");
         EnemyPooler1 = EnemyPool1.GetComponent<ObjectPooler>();
         EnemyPool2 = GameObject.FindGameObjectWithTag("EnemyPool2");
@@ -45,10 +47,13 @@ public class EnemySpawn : MonoBehaviour {
         EnemyPooler3 = EnemyPool3.GetComponent<ObjectPooler>();
         EPool1 = GameObject.FindGameObjectWithTag("EPool1");
         EPooler1 = EPool1.GetComponent<ObjectPooler>();
+        EPool2 = GameObject.FindGameObjectWithTag("EPool2");
+        EPooler2 = EPool2.GetComponent<ObjectPooler>();
         enemyType = EnemyPooler1.pooledObject;
         enemyType2 = EnemyPooler2.pooledObject;
         enemyType3 = EnemyPooler3.pooledObject;
         enemyType5 = EPooler1.pooledObject;
+        enemyType6 = EPooler2.pooledObject;
     }
 	
 	// Update is called once per frame
@@ -58,13 +63,11 @@ public class EnemySpawn : MonoBehaviour {
         {
             if (SpawnEnemies)
             {
-                //if (timer >= spawnTimeIntervals)
-                //{
-                    SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5));
-                    timer = 0;
-                    enemiesSpawned++;
-                //}
-                if (enemiesSpawned > 4)
+                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5, enemyType6));
+                timer = 0;
+                enemiesSpawned++;
+
+                if (enemiesSpawned > 5)
                 {
                     enemiesSpawned = 0;
                     SpawnEnemies = false;
@@ -80,9 +83,9 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5)
+    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5, GameObject type6)
     {
-        int var = Random.Range(0, 6);
+        int var = Random.Range(0, 7);
         switch (var)
         {
             case 1:
@@ -93,6 +96,8 @@ public class EnemySpawn : MonoBehaviour {
                 return type3;
             case 4:
                 return type4;
+            case 5:
+                return type6;
             default:
                 return type5;
         }
@@ -101,7 +106,7 @@ public class EnemySpawn : MonoBehaviour {
     {
         while (type == lastSpawned)
         {
-            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5);
+            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5, enemyType6);
         }
         lastSpawned = type;
         GameObject typ = type;
@@ -122,7 +127,9 @@ public class EnemySpawn : MonoBehaviour {
             typ = enemyType;
         }
         int spawnLocation = Random.Range(-4, 0);
-        int spawnOption = Random.Range(1, 3);
+        int spawnOption = Random.Range(1, 4);
+        for (int i = 0; i < 2; i++)
+            EPooler2.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         for (int i = 0; i < 3; i++)
             EPooler1.GetPooledObject(new Vector3(10+i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         if (spawnOption == 1)
@@ -141,6 +148,11 @@ public class EnemySpawn : MonoBehaviour {
         {
             for (int i = 0; i < 3; i++)
                 EPooler1.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
+        }
+        else if (spawnOption == 4)
+        {
+            for (int i = 0; i < 3; i++)
+                EPooler2.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         }
 
     }
