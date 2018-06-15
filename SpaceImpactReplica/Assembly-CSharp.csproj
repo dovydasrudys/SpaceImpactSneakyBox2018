@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Eenemy.cs" />
     <Compile Include="Assets\Scripts\Eenemy2.cs" />
     <Compile Include="Assets\Scripts\Eenemy3.cs" />
+    <Compile Include="Assets\Scripts\Eenemy4.cs" />
     <Compile Include="Assets\Scripts\Enemy2Behaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour3.cs" />
