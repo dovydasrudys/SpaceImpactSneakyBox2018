@@ -51,6 +51,12 @@ TagManager:
   - Eenemy
   - EPool2
   - Eenemy2
+  - EPool3
+  - Eenemy3
+  - EPool4
+  - Eenemy4
+  - EPool5
+  - Eenemy5
   layers:
   - Default
   - TransparentFX

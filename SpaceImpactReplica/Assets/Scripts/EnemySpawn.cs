@@ -34,6 +34,9 @@ public class EnemySpawn : MonoBehaviour {
     GameObject EPool2;
     ObjectPooler EPooler2;
     GameObject enemyType6;
+    GameObject EPool3;
+    ObjectPooler EPooler3;
+    GameObject enemyType7;
     // Use this for initialization
     void Start () {
         Time.timeScale = 1f;
@@ -49,11 +52,14 @@ public class EnemySpawn : MonoBehaviour {
         EPooler1 = EPool1.GetComponent<ObjectPooler>();
         EPool2 = GameObject.FindGameObjectWithTag("EPool2");
         EPooler2 = EPool2.GetComponent<ObjectPooler>();
+        EPool3 = GameObject.FindGameObjectWithTag("EPool3");
+        EPooler3 = EPool3.GetComponent<ObjectPooler>();
         enemyType = EnemyPooler1.pooledObject;
         enemyType2 = EnemyPooler2.pooledObject;
         enemyType3 = EnemyPooler3.pooledObject;
         enemyType5 = EPooler1.pooledObject;
         enemyType6 = EPooler2.pooledObject;
+        enemyType7 = EPooler3.pooledObject;
     }
 	
 	// Update is called once per frame
@@ -63,7 +69,7 @@ public class EnemySpawn : MonoBehaviour {
         {
             if (SpawnEnemies)
             {
-                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5, enemyType6));
+                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5, enemyType6, enemyType7));
                 timer = 0;
                 enemiesSpawned++;
 
@@ -83,9 +89,9 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5, GameObject type6)
+    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5, GameObject type6, GameObject type7)
     {
-        int var = Random.Range(0, 7);
+        int var = Random.Range(0, 8);
         switch (var)
         {
             case 1:
@@ -98,6 +104,8 @@ public class EnemySpawn : MonoBehaviour {
                 return type4;
             case 5:
                 return type6;
+            case 6:
+                return type7;
             default:
                 return type5;
         }
@@ -106,7 +114,7 @@ public class EnemySpawn : MonoBehaviour {
     {
         while (type == lastSpawned)
         {
-            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5, enemyType6);
+            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5, enemyType6, enemyType7);
         }
         lastSpawned = type;
         GameObject typ = type;
@@ -127,7 +135,9 @@ public class EnemySpawn : MonoBehaviour {
             typ = enemyType;
         }
         int spawnLocation = Random.Range(-4, 0);
-        int spawnOption = Random.Range(1, 4);
+        int spawnOption = Random.Range(1, 5);
+        
+        EPooler3.GetPooledObject(new Vector3(10, spawnLocation + 1 + 0.5f), transform.rotation);
         for (int i = 0; i < 2; i++)
             EPooler2.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         for (int i = 0; i < 3; i++)
@@ -137,13 +147,11 @@ public class EnemySpawn : MonoBehaviour {
             for (int i = 0; i < 5; i++)
                 EnemyPooler1.GetPooledObject(new Vector3(12.5f-i, spawnLocation + i+0.5f), transform.rotation);
         }
-
         else if (spawnOption == 2)
         {
             for (int i = 0; i < 3; i++)
                 EnemyPooler2.GetPooledObject(new Vector3(10, spawnLocation + (1+i+0.5f)), transform.rotation);
         }
-
         else if (spawnOption == 3)
         {
             for (int i = 0; i < 3; i++)
@@ -154,7 +162,11 @@ public class EnemySpawn : MonoBehaviour {
             for (int i = 0; i < 3; i++)
                 EPooler2.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         }
-
+        else if (spawnOption == 5)
+        {
+            for (int i = 0; i < 3; i++)
+                EPooler3.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
+        }
     }
     
     bool isOffScreen(Transform tr)
