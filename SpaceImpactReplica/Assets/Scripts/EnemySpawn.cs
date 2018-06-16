@@ -40,6 +40,9 @@ public class EnemySpawn : MonoBehaviour {
     GameObject EPool4;
     ObjectPooler EPooler4;
     GameObject enemyType8;
+    GameObject EPool5;
+    ObjectPooler EPooler5;
+    GameObject enemyType9;
     // Use this for initialization
     void Start () {
         Time.timeScale = 1f;
@@ -59,6 +62,8 @@ public class EnemySpawn : MonoBehaviour {
         EPooler3 = EPool3.GetComponent<ObjectPooler>();
         EPool4 = GameObject.FindGameObjectWithTag("EPool4");
         EPooler4 = EPool4.GetComponent<ObjectPooler>();
+        EPool5 = GameObject.FindGameObjectWithTag("EPool5");
+        EPooler5 = EPool5.GetComponent<ObjectPooler>();
         enemyType = EnemyPooler1.pooledObject;
         enemyType2 = EnemyPooler2.pooledObject;
         enemyType3 = EnemyPooler3.pooledObject;
@@ -66,6 +71,7 @@ public class EnemySpawn : MonoBehaviour {
         enemyType6 = EPooler2.pooledObject;
         enemyType7 = EPooler3.pooledObject;
         enemyType8 = EPooler4.pooledObject;
+        enemyType9 = EPooler5.pooledObject;
     }
 	
 	// Update is called once per frame
@@ -75,7 +81,7 @@ public class EnemySpawn : MonoBehaviour {
         {
             if (SpawnEnemies)
             {
-                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5, enemyType6, enemyType7, enemyType8));
+                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5, enemyType6, enemyType7, enemyType8, enemyType9));
                 timer = 0;
                 enemiesSpawned++;
 
@@ -95,9 +101,9 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5, GameObject type6, GameObject type7, GameObject type8)
+    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5, GameObject type6, GameObject type7, GameObject type8, GameObject type9)
     {
-        int var = Random.Range(0, 9);
+        int var = Random.Range(0, 10);
         switch (var)
         {
             case 1:
@@ -114,6 +120,8 @@ public class EnemySpawn : MonoBehaviour {
                 return type7;
             case 7:
                 return type8;
+            case 8:
+                return type9;
             default:
                 return type5;
         }
@@ -122,7 +130,7 @@ public class EnemySpawn : MonoBehaviour {
     {
         while (type == lastSpawned)
         {
-            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5, enemyType6, enemyType7, enemyType8);
+            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5, enemyType6, enemyType7, enemyType8, enemyType9);
         }
         lastSpawned = type;
         GameObject typ = type;
@@ -143,13 +151,15 @@ public class EnemySpawn : MonoBehaviour {
             typ = enemyType;
         }
         int spawnLocation = Random.Range(-4, 0);
-        int spawnOption = Random.Range(1, 6);
+        int verticalSpawn = Random.Range(-10, -4);
+        int spawnOption = Random.Range(1, 7);
         EPooler4.GetPooledObject(new Vector3(10, spawnLocation - 2 + 0.5f), transform.rotation);
         EPooler3.GetPooledObject(new Vector3(10, spawnLocation + 1 + 0.5f), transform.rotation);
         for (int i = 0; i < 2; i++)
             EPooler2.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         for (int i = 0; i < 3; i++)
             EPooler1.GetPooledObject(new Vector3(10+i, spawnLocation + 1 + i + 0.5f), transform.rotation);
+        EPooler5.GetPooledObject(new Vector3(0, 4 + 0.5f), transform.rotation);
         if (spawnOption == 1)
         {
             for (int i = 0; i < 5; i++)
@@ -179,6 +189,11 @@ public class EnemySpawn : MonoBehaviour {
         {
             for (int i = 0; i < 2; i++)
                 EPooler4.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
+        }
+        else if (spawnOption == 7)
+        {
+            for (int i = 0; i < 2; i++)
+                EPooler5.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
         }
     }
     
