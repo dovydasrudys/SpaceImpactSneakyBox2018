@@ -62,6 +62,8 @@ TagManager:
   - Weapon1 System
   - PlasmaBullPool
   - PlasmaBull
+  - LaserBullPool
+  - LaserBull
   layers:
   - Default
   - TransparentFX

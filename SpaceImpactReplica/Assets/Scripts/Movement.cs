@@ -14,6 +14,10 @@ public class Movement : MonoBehaviour
     ObjectPooler PlasmaBullPooler;
     public GameObject PlasmaBull;
 
+    GameObject LaserBullPool;
+    ObjectPooler LaserBullPooler;
+    public GameObject LaserBull;
+
     public float speed;
     public float health;
     float maxHealth;
@@ -44,6 +48,10 @@ public class Movement : MonoBehaviour
         PlasmaBullPool = GameObject.FindGameObjectWithTag("PlasmaBullPool");
         PlasmaBullPooler = PlasmaBullPool.GetComponent<ObjectPooler>();
         PlasmaBull = PlasmaBullPooler.pooledObject;
+
+        LaserBullPool = GameObject.FindGameObjectWithTag("LaserBullPool");
+        LaserBullPooler = LaserBullPool.GetComponent<ObjectPooler>();
+        LaserBull = LaserBullPooler.pooledObject;
         maxHealth = health;
     }
 
@@ -54,6 +62,7 @@ public class Movement : MonoBehaviour
         Move();
         FireAtSpecifiedRate();
         PlasmaAttack();
+        LaserAttack();
     }
 
     void FireAtSpecifiedRate()
@@ -74,9 +83,9 @@ public class Movement : MonoBehaviour
 
     void SpecialAttack() {
 
-        if(Input.GetKeyDown("space") && special.value == 100) {
+        if(Input.GetKeyDown("space") && special.value >= 75) {
             ulti.SetActive(true);
-            special.value = 0;
+            special.value -= 75;
         }
     }
 
@@ -235,7 +244,7 @@ public class Movement : MonoBehaviour
     }
     void PlasmaAttack()
     {
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKeyDown("z") && special.value >= 10)
         {
             Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
             GameObject bull01 = PlasmaBullPooler.GetPooledObject(position1, transform.rotation);
@@ -245,6 +254,18 @@ public class Movement : MonoBehaviour
             GameObject bull02 = PlasmaBullPooler.GetPooledObject(position2, transform.rotation);
             bull02.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
             bull02.GetComponent<PlasmaBull>().damage = damage;
+            special.value -= 10;
+        }
+    }
+    void LaserAttack()
+    {
+        if (Input.GetKeyDown("x") && special.value >= 100)
+        {
+            Vector3 position1 = transform.position + new Vector3(0.8f, 0f);
+            GameObject bull01 = LaserBullPooler.GetPooledObject(position1, transform.rotation);
+            bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+            bull01.GetComponent<LaserBull>().damage = damage;
+            special.value = 0;
         }
     }
     private void FireThree()

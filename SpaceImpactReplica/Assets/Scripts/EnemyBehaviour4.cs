@@ -95,6 +95,12 @@ public class EnemyBehaviour4 : MonoBehaviour {
             ReceiveDamage(player.damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "LaserBull")
+        {
+            LaserBull missile = collision.gameObject.GetComponent<LaserBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            Destroy();
+        }
         else if (collision.gameObject.tag == "Player")
         {
             ReceiveDamage(health);
@@ -135,5 +141,10 @@ public class EnemyBehaviour4 : MonoBehaviour {
         if (transform.position.x < -11 || Mathf.Abs(transform.position.y) > 5)
             return true;
         return false;
+    }
+    void Destroy()
+    {
+        gameObject.SetActive(false);
+        health = savedHealth;
     }
 }

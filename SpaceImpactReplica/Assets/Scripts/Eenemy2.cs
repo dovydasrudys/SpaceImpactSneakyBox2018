@@ -88,6 +88,12 @@ public class Eenemy2 : MonoBehaviour
             ReceiveDamage(player.damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "LaserBull")
+        {
+            LaserBull missile = collision.gameObject.GetComponent<LaserBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            Destroy();
+        }
         else if (collision.gameObject.tag == "Player")
             ReceiveDamage(health);
 
