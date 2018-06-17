@@ -10,6 +10,9 @@ public class Movement : MonoBehaviour
     GameObject bulletPool;
     ObjectPooler bulletPooler;
 
+    GameObject PlasmaBullPool;
+    ObjectPooler PlasmaBullPooler;
+    public GameObject PlasmaBull;
 
     public float speed;
     public float health;
@@ -37,6 +40,10 @@ public class Movement : MonoBehaviour
         bulletPool = GameObject.FindGameObjectWithTag("PlayerBulletPool");
         bulletPooler = bulletPool.GetComponent<ObjectPooler>();
         projectile = bulletPooler.pooledObject;
+
+        PlasmaBullPool = GameObject.FindGameObjectWithTag("PlasmaBullPool");
+        PlasmaBullPooler = PlasmaBullPool.GetComponent<ObjectPooler>();
+        PlasmaBull = PlasmaBullPooler.pooledObject;
         maxHealth = health;
     }
 
@@ -46,6 +53,7 @@ public class Movement : MonoBehaviour
         SpecialAttack();
         Move();
         FireAtSpecifiedRate();
+        PlasmaAttack();
     }
 
     void FireAtSpecifiedRate()
@@ -90,9 +98,13 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "EnemyProjectile")
         {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
+            PlasmaBull missile2 = collision.gameObject.GetComponent<PlasmaBull>();
             health -= missile.GetDamage();
             healthbar.value -= missile.GetDamage();
             missile.Hit();
+            health -= missile2.GetDamage();
+            healthbar.value -= missile2.GetDamage();
+            missile2.Hit();
         } else if (collision.gameObject.tag == "Boss") {
             health -= 300;
             healthbar.value -= 300;  
@@ -220,6 +232,20 @@ public class Movement : MonoBehaviour
         missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
         missile.GetComponent<Projectile>().damage = damage;
         //source.PlayOneShot(laserSound, 100);
+    }
+    void PlasmaAttack()
+    {
+        if (Input.GetKeyDown("z"))
+        {
+            Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
+            GameObject bull01 = PlasmaBullPooler.GetPooledObject(position1, transform.rotation);
+            bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+            bull01.GetComponent<PlasmaBull>().damage = damage;
+            Vector3 position2 = transform.position + new Vector3(0.5f, -0.5f);
+            GameObject bull02 = PlasmaBullPooler.GetPooledObject(position2, transform.rotation);
+            bull02.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+            bull02.GetComponent<PlasmaBull>().damage = damage;
+        }
     }
     private void FireThree()
     {

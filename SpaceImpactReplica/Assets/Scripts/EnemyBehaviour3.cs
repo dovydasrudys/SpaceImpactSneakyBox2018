@@ -72,6 +72,13 @@ public class EnemyBehaviour3 : MonoBehaviour {
             ReceiveDamage(player.GetComponent<Movement>().damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "PlasmaBull")
+        {
+            PlasmaBull missile = collision.gameObject.GetComponent<PlasmaBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "Player")
             ReceiveDamage(health);
 

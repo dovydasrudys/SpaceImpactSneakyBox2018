@@ -6,10 +6,8 @@ public class SpacialMove : MonoBehaviour {
 
     float timer = 0f;
     public float lastTime = 4f;
-    EnemyBehaviour enemy;
 
     private void Start() {
-        //EnemyBehaviour enemy;
     }
 
     // Update is called once per frame
@@ -20,5 +18,4 @@ public class SpacialMove : MonoBehaviour {
             timer = 0;
         }
     }
-
 }
