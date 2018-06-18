@@ -225,6 +225,7 @@ MonoBehaviour:
   chargeBarValue: 20
   Drop1: {fileID: 1561003269203512, guid: 8e8248b4a78feca4cbc936ce84c1e3a3, type: 2}
   TripleShot: {fileID: 1146025557343332, guid: a4370ec577fd1754697bd826fe2ebb5b, type: 2}
+  projectile: {fileID: 1475082521169184, guid: 83c0e49149bd2d24895d99a1111b93b1, type: 2}
 --- !u!198 &198834762338441782
 ParticleSystem:
   m_ObjectHideFlags: 1

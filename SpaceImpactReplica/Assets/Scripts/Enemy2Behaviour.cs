@@ -73,6 +73,13 @@ public class Enemy2Behaviour : MonoBehaviour {
             Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
             Destroy();
         }
+        else if (collision.gameObject.tag == "RocketBull")
+        {
+            RocketBull missile = collision.gameObject.GetComponent<RocketBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "Player")
         {
             ReceiveDamage(health);

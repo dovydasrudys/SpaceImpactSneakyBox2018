@@ -15,6 +15,7 @@ public class Eenemy : MonoBehaviour
     public float movementSpeed;
     public float chargeBarValue;
     public GameObject Drop1;
+    public GameObject Drop2;
     public GameObject TripleShot;
     GameObject explosionPool;
     ObjectPooler explosionPooler;
@@ -57,6 +58,11 @@ public class Eenemy : MonoBehaviour
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(TripleShot, position, TripleShot.transform.rotation);
                 }
+                if (Random.Range(1f, 100f) <= 20f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(Drop2, position, transform.rotation);
+                }
             }
             Destroy();
         }
@@ -75,6 +81,13 @@ public class Eenemy : MonoBehaviour
         else if (collision.gameObject.tag == "PlasmaBull")
         {
             PlasmaBull missile = collision.gameObject.GetComponent<PlasmaBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
+        else if (collision.gameObject.tag == "RocketBull")
+        {
+            RocketBull missile = collision.gameObject.GetComponent<RocketBull>();
             Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
             ReceiveDamage(player.damage);
             missile.Hit();
@@ -106,6 +119,11 @@ public class Eenemy : MonoBehaviour
             {
                 Vector3 position = transform.position + new Vector3(0f, -0.8f);
                 Instantiate(TripleShot, position, TripleShot.transform.rotation);
+            }
+            if (Random.Range(1f, 100f) <= 20f)
+            {
+                Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                Instantiate(Drop2, position, transform.rotation);
             }
         }
     }

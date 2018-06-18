@@ -16,6 +16,7 @@ public class EnemyBehaviour3 : MonoBehaviour {
     GameObject player;
     public GameObject Drop1;
     public GameObject TripleShot;
+    public GameObject projectile;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
     GameObject explosionPool;
@@ -25,6 +26,7 @@ public class EnemyBehaviour3 : MonoBehaviour {
     {
         bulletPool = GameObject.FindGameObjectWithTag("BombPool");
         bulletPooler = bulletPool.GetComponent<ObjectPooler>();
+        projectile = bulletPooler.pooledObject;
         explosionPool = GameObject.FindGameObjectWithTag("ExplosionPool");
         explosionPooler = explosionPool.GetComponent<ObjectPooler>();
         savedHealth = health;
@@ -75,6 +77,13 @@ public class EnemyBehaviour3 : MonoBehaviour {
         else if (collision.gameObject.tag == "PlasmaBull")
         {
             PlasmaBull missile = collision.gameObject.GetComponent<PlasmaBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
+        else if (collision.gameObject.tag == "RocketBull")
+        {
+            RocketBull missile = collision.gameObject.GetComponent<RocketBull>();
             Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
             ReceiveDamage(player.damage);
             missile.Hit();

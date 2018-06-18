@@ -57,13 +57,13 @@ TagManager:
   - Eenemy4
   - EPool5
   - Eenemy5
-  - W1P
-  - Weapon1
-  - Weapon1 System
   - PlasmaBullPool
   - PlasmaBull
   - LaserBullPool
   - LaserBull
+  - RocketBullPool
+  - RocketBull
+  - Drop2
   layers:
   - Default
   - TransparentFX

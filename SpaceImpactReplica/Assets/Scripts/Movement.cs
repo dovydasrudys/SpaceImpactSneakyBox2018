@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     bool x3Activated = false;
+    bool rocketActivated = false;
     float x3Timer;
+    float rocketTimer;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
 
@@ -17,6 +19,10 @@ public class Movement : MonoBehaviour
     GameObject LaserBullPool;
     ObjectPooler LaserBullPooler;
     public GameObject LaserBull;
+
+    GameObject RocketBullPool;
+    ObjectPooler RocketBullPooler;
+    public GameObject RocketBull;
 
     public float speed;
     public float health;
@@ -49,6 +55,10 @@ public class Movement : MonoBehaviour
         PlasmaBullPooler = PlasmaBullPool.GetComponent<ObjectPooler>();
         PlasmaBull = PlasmaBullPooler.pooledObject;
 
+        RocketBullPool = GameObject.FindGameObjectWithTag("RocketBullPool");
+        RocketBullPooler = RocketBullPool.GetComponent<ObjectPooler>();
+        RocketBull = RocketBullPooler.pooledObject;
+
         LaserBullPool = GameObject.FindGameObjectWithTag("LaserBullPool");
         LaserBullPooler = LaserBullPool.GetComponent<ObjectPooler>();
         LaserBull = LaserBullPooler.pooledObject;
@@ -69,6 +79,7 @@ public class Movement : MonoBehaviour
     {
         timer += Time.deltaTime;
         x3Timer += Time.deltaTime;
+        rocketTimer += Time.deltaTime;
         if (timer > secondsPerShot)
         {
             Fire();
@@ -78,6 +89,13 @@ public class Movement : MonoBehaviour
         {
             if (x3Timer > 10)
                 x3Activated = false;
+        }
+        if (rocketActivated)
+        {
+            if(rocketTimer > 15)
+            {
+                rocketActivated = false;
+            }
         }
     }
 
@@ -189,8 +207,17 @@ public class Movement : MonoBehaviour
         else if (collision.gameObject.tag == "TripleShot")
         {
             x3Activated = true;
+            rocketActivated = false;
             x3Timer = 0;
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Drop2")
+        {
+            rocketActivated = true;
+            x3Activated = false;
+            rocketTimer = 0;
+            Destroy(collision.gameObject);
+
         }
         else if (collision.gameObject.tag == "Bomb")
         {
@@ -236,6 +263,11 @@ public class Movement : MonoBehaviour
             FireThree();
             return;
         }
+        if (rocketActivated)
+        {
+            RocketAttack();
+            return;
+        }
         Vector3 position = transform.position + new Vector3(0.8f, 0f);
         GameObject missile = bulletPooler.GetPooledObject(position, transform.rotation);
         missile.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
@@ -256,6 +288,13 @@ public class Movement : MonoBehaviour
             bull02.GetComponent<PlasmaBull>().damage = damage;
             special.value -= 10;
         }
+    }
+    void RocketAttack()
+    {
+        Vector3 position1 = transform.position + new Vector3(0.8f, 0);
+        GameObject bull01 = RocketBullPooler.GetPooledObject(position1, transform.rotation);
+        bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
+        bull01.GetComponent<RocketBull>().damage = damage;
     }
     void LaserAttack()
     {

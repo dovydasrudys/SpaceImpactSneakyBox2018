@@ -110,6 +110,7 @@ MonoBehaviour:
   movementSpeed: 4
   chargeBarValue: 200
   Drop1: {fileID: 1561003269203512, guid: 8e8248b4a78feca4cbc936ce84c1e3a3, type: 2}
+  Drop2: {fileID: 1262768803736668, guid: ff00fdf6ad681264380f650efa097c6b, type: 2}
   TripleShot: {fileID: 1146025557343332, guid: a4370ec577fd1754697bd826fe2ebb5b, type: 2}
   projectile: {fileID: 1503608771861690, guid: d63ab763bea0ac9429e476626b10c36c, type: 2}
 --- !u!212 &212428518468312142

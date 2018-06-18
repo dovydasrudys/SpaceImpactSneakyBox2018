@@ -95,6 +95,13 @@ public class EnemyBehaviour4 : MonoBehaviour {
             ReceiveDamage(player.damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "RocketBull")
+        {
+            RocketBull missile = collision.gameObject.GetComponent<RocketBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "LaserBull")
         {
             LaserBull missile = collision.gameObject.GetComponent<LaserBull>();

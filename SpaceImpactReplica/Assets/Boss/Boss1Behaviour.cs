@@ -86,20 +86,28 @@ public class Boss1Behaviour : MonoBehaviour
             hitPoints -= missile.GetDamage();
             missile.Hit();
         }
-        if (collision.gameObject.tag == "PlasmaBull")
+        else if (collision.gameObject.tag == "PlasmaBull")
         {
             PlasmaBull missile = collision.gameObject.GetComponent<PlasmaBull>();
             healthSlider.value -= missile.GetDamage();
             hitPoints -= missile.GetDamage();
             missile.Hit();
         }
-        if (collision.gameObject.tag == "LaserBull")
+        else if (collision.gameObject.tag == "RocketBull")
+        {
+            RocketBull missile = collision.gameObject.GetComponent<RocketBull>();
+            healthSlider.value -= missile.GetDamage();
+            hitPoints -= missile.GetDamage();
+            missile.Hit();
+        }
+        else if (collision.gameObject.tag == "LaserBull")
         {
             LaserBull missile = collision.gameObject.GetComponent<LaserBull>();
             healthSlider.value -= missile.GetDamage();
             hitPoints -= missile.GetDamage();
+            Destroy(missile);
         }
-        if (collision.gameObject.tag == "SpecialMove")
+        else if (collision.gameObject.tag == "SpecialMove")
         {
             healthSlider.value -= specialAttackDmg;
             hitPoints -= specialAttackDmg;
