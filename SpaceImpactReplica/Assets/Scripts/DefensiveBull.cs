@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class DefensiveBull : MonoBehaviour
 {
     public float damage = 100f;
     GameObject explosionPool;
     ObjectPooler explosionPooler;
+    public float speed;
+
+    Vector3 movement = new Vector3();
+    float h;
+    float v;
 
     private void Start()
     {
@@ -22,12 +27,16 @@ public class Projectile : MonoBehaviour
     {
         return damage;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.tag == "PlayerProjectile")
+        if (gameObject.tag == "DefensiveBull")
         {
             switch (collision.gameObject.tag)
             {
+                case "EnemyProjectile":
+                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
+                    break;
                 case "Enemy":
                     explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
                     break;
@@ -92,5 +101,4 @@ public class Projectile : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
 }

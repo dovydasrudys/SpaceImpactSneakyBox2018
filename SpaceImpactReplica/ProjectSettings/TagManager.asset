@@ -64,6 +64,9 @@ TagManager:
   - RocketBullPool
   - RocketBull
   - Drop2
+  - DefensiveBullPool
+  - DefensiveBull
+  - Drop3
   layers:
   - Default
   - TransparentFX

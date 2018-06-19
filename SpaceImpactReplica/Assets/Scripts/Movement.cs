@@ -7,8 +7,11 @@ public class Movement : MonoBehaviour
 {
     bool x3Activated = false;
     bool rocketActivated = false;
+    bool defenceActivated = false;
+    bool defenceSpawn = false;
     float x3Timer;
     float rocketTimer;
+    float defenceTimer;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
 
@@ -23,6 +26,10 @@ public class Movement : MonoBehaviour
     GameObject RocketBullPool;
     ObjectPooler RocketBullPooler;
     public GameObject RocketBull;
+
+    GameObject DefensiveBullPool;
+    ObjectPooler DefensiveBullPooler;
+    public GameObject DefensiveBull;
 
     public float speed;
     public float health;
@@ -62,7 +69,13 @@ public class Movement : MonoBehaviour
         LaserBullPool = GameObject.FindGameObjectWithTag("LaserBullPool");
         LaserBullPooler = LaserBullPool.GetComponent<ObjectPooler>();
         LaserBull = LaserBullPooler.pooledObject;
+
+        DefensiveBullPool = GameObject.FindGameObjectWithTag("DefensiveBullPool");
+        DefensiveBullPooler = DefensiveBullPool.GetComponent<ObjectPooler>();
+        DefensiveBull = DefensiveBullPooler.pooledObject;
         maxHealth = health;
+        defenceActivated = true;
+        defenceSpawn = true;
     }
 
 
@@ -73,6 +86,7 @@ public class Movement : MonoBehaviour
         FireAtSpecifiedRate();
         PlasmaAttack();
         LaserAttack();
+        Defence();
     }
 
     void FireAtSpecifiedRate()
@@ -104,6 +118,27 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown("space") && special.value >= 75) {
             ulti.SetActive(true);
             special.value -= 75;
+        }
+    }
+
+    void Defence()
+    {
+        defenceTimer += Time.deltaTime;
+        if (defenceActivated)
+        {
+            if (defenceSpawn)
+            {
+                Vector3 position1 = transform.position + new Vector3(0.8f, 0);
+                DefensiveBull = DefensiveBullPooler.GetPooledObject(transform.localPosition, transform.rotation);
+                defenceSpawn = false;
+            }
+            DefensiveBull.transform.localPosition = transform.localPosition + new Vector3(0.8f, 0);
+            DefensiveBull.GetComponent<DefensiveBull>().damage = damage;
+            if (defenceTimer > 20)
+            {
+                defenceActivated = false;
+                DestroyObject(DefensiveBull);
+            }
         }
     }
 
@@ -218,6 +253,16 @@ public class Movement : MonoBehaviour
             rocketTimer = 0;
             Destroy(collision.gameObject);
 
+        }
+        else if (collision.gameObject.tag == "Drop3")
+        {
+            if (!defenceActivated)
+            {
+                defenceActivated = true;
+                defenceSpawn = true;
+                defenceTimer = 0;
+                Destroy(collision.gameObject);
+            }
         }
         else if (collision.gameObject.tag == "Bomb")
         {

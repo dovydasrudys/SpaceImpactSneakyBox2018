@@ -16,6 +16,7 @@ public class Eenemy2 : MonoBehaviour
     public float chargeBarValue;
     public GameObject Drop1;
     public GameObject Drop2;
+    public GameObject Drop3;
     public GameObject TripleShot;
     GameObject explosionPool;
     ObjectPooler explosionPooler;
@@ -71,6 +72,11 @@ public class Eenemy2 : MonoBehaviour
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(Drop2, position, transform.rotation);
+                }
+                if (Random.Range(1f, 100f) <= 20f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(Drop3, position, transform.rotation);
                 }
             }
             Destroy();
@@ -133,6 +139,11 @@ public class Eenemy2 : MonoBehaviour
             {
                 Vector3 position = transform.position + new Vector3(0f, -0.8f);
                 Instantiate(Drop2, position, transform.rotation);
+            }
+            if (Random.Range(1f, 100f) <= 20f)
+            {
+                Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                Instantiate(Drop3, position, transform.rotation);
             }
         }
     }
