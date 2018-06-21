@@ -158,8 +158,7 @@ public class EnemySpawn : MonoBehaviour {
         }
         int spawnLocation = Random.Range(-4, 0);
         int verticalSpawn = Random.Range(-10, -4);
-        int spawnOption = Random.Range(1, 7);
-        EPooler6.GetPooledObject(new Vector3(10, spawnLocation + 7f), transform.rotation);
+        int spawnOption = Random.Range(1, 9);
         EPooler4.GetPooledObject(new Vector3(10, spawnLocation - 2 + 0.5f), transform.rotation);
         EPooler3.GetPooledObject(new Vector3(10, spawnLocation + 1 + 0.5f), transform.rotation);
         for (int i = 0; i < 2; i++)
@@ -201,6 +200,10 @@ public class EnemySpawn : MonoBehaviour {
         {
             for (int i = 0; i < 2; i++)
                 EPooler5.GetPooledObject(new Vector3(10 + i, spawnLocation + 1 + i + 0.5f), transform.rotation);
+        }
+        else if(spawnOption >= 8)
+        {
+            EPooler6.GetPooledObject(new Vector3(10, 4f), transform.rotation);
         }
     }
     

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4635810041120246}
   - component: {fileID: 212328022734440548}
   - component: {fileID: 114239973374027634}
-  - component: {fileID: 60271021254805942}
   - component: {fileID: 50396388731602226}
+  - component: {fileID: 61902495328599498}
   m_Layer: 0
   m_Name: DefensiveBull
   m_TagString: DefensiveBull
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60271021254805942
-PolygonCollider2D:
+--- !u!61 &61902495328599498
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,7 +75,7 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -85,13 +85,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!114 &114239973374027634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22982f43e86fda143842d54106b8aaa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 200
+  damage: 1000
   speed: 0
 --- !u!212 &212328022734440548
 SpriteRenderer:

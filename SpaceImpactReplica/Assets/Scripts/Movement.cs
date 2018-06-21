@@ -113,9 +113,9 @@ public class Movement : MonoBehaviour
 
     void SpecialAttack() {
 
-        if(Input.GetKeyDown("space") && special.value >= 75) {
+        if(Input.GetKeyDown("space") && special.value >= 100) {
             ulti.SetActive(true);
-            special.value -= 75;
+            special.value -= 100;
         }
     }
 
@@ -323,7 +323,7 @@ public class Movement : MonoBehaviour
     }
     void PlasmaAttack()
     {
-        if (Input.GetKeyDown("z") && special.value >= 10)
+        if (Input.GetKeyDown("z") && special.value >= 5)
         {
             Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
             GameObject bull01 = PlasmaBullPooler.GetPooledObject(position1, transform.rotation);
@@ -333,7 +333,7 @@ public class Movement : MonoBehaviour
             GameObject bull02 = PlasmaBullPooler.GetPooledObject(position2, transform.rotation);
             bull02.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
             bull02.GetComponent<PlasmaBull>().damage = damage;
-            special.value -= 10;
+            special.value -= 5;
         }
     }
     void RocketAttack()
@@ -351,7 +351,7 @@ public class Movement : MonoBehaviour
             GameObject bull01 = LaserBullPooler.GetPooledObject(position1, transform.rotation);
             bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 0f);
             bull01.GetComponent<LaserBull>().damage = damage;
-            special.value = 0;
+            special.value -= 100;
         }
     }
     private void FireThree()

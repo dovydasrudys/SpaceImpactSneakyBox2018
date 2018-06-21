@@ -108,7 +108,7 @@ MonoBehaviour:
   shotsPerSecond: 2.5
   projectileSpeed: 8
   movementSpeed: 4
-  chargeBarValue: 200
+  chargeBarValue: 2
   Drop1: {fileID: 1561003269203512, guid: 8e8248b4a78feca4cbc936ce84c1e3a3, type: 2}
   Drop2: {fileID: 1262768803736668, guid: ff00fdf6ad681264380f650efa097c6b, type: 2}
   Drop3: {fileID: 1274631918376712, guid: fc6c708cf4dd7ae4b85e112f350dd957, type: 2}

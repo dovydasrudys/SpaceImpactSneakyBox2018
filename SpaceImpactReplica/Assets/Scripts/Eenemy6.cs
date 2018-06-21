@@ -58,22 +58,12 @@ public class Eenemy6 : MonoBehaviour
                 FindObjectOfType<Movement>().IncreasePoints(pointsDropped);
                 test.value += chargeBarValue;
                 explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(0, 0);
-                if (Random.Range(1f, 100f) <= 20f)
-                {
-                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
-                    Instantiate(Drop1, position, transform.rotation);
-                }
-                if (Random.Range(1f, 100f) > 95f)
+                if (Random.Range(1f, 100f) <= 15f)
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(TripleShot, position, TripleShot.transform.rotation);
                 }
-                if (Random.Range(1f, 100f) <= 20f)
-                {
-                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
-                    Instantiate(Drop2, position, transform.rotation);
-                }
-                if (Random.Range(1f, 100f) <= 20f)
+                if (Random.Range(1f, 100f) >= 95f)
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(Drop3, position, transform.rotation);
@@ -132,22 +122,12 @@ public class Eenemy6 : MonoBehaviour
             test.value += chargeBarValue;
             explosionPooler.GetPooledObject(transform.position, transform.rotation);
             Destroy();
-            if (Random.Range(1f, 100f) <= 20f)
-            {
-                Vector3 position = transform.position + new Vector3(0f, -0.8f);
-                Instantiate(Drop1, position, transform.rotation);
-            }
-            if (Random.Range(1f, 100f) > 95f)
+            if (Random.Range(1f, 100f) <= 15f)
             {
                 Vector3 position = transform.position + new Vector3(0f, -0.8f);
                 Instantiate(TripleShot, position, TripleShot.transform.rotation);
             }
-            if (Random.Range(1f, 100f) <= 20f)
-            {
-                Vector3 position = transform.position + new Vector3(0f, -0.8f);
-                Instantiate(Drop2, position, transform.rotation);
-            }
-            if (Random.Range(1f, 100f) <= 20f)
+            if (Random.Range(1f, 100f) >= 95f)
             {
                 Vector3 position = transform.position + new Vector3(0f, -0.8f);
                 Instantiate(Drop3, position, transform.rotation);

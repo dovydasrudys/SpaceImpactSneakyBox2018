@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 220c6f30fa1a09840bdd4f422c36364d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
 --- !u!212 &212885924899244566
 SpriteRenderer:
   m_ObjectHideFlags: 1

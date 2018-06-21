@@ -30,60 +30,11 @@ public class DefensiveBull : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.tag == "DefensiveBull")
+        if (collision.gameObject.tag == "EnemyProjectile")
         {
-            switch (collision.gameObject.tag)
-            {
-                case "EnemyProjectile":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Enemy":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Enemy2":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Enemy3":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Enemy4":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Eenemy":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Eenemy2":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Eenemy3":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Eenemy4":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Eenemy5":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "Boss":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                default:
-                    break;
-            }
-        }
-        else if (gameObject.tag == "EnemyProjectile")
-        {
-            switch (collision.gameObject.tag)
-            {
-                case "Player":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                case "DefensiveBull":
-                    explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
-                    break;
-                default:
-                    break;
-            }
+            Projectile missile = collision.gameObject.GetComponent<Projectile>();
+            missile.damage = 0;
+            missile.Hit();
         }
     }
 

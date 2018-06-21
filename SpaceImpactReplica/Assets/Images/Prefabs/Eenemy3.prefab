@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1939718350225754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.47929937, y: -0.6926157, z: 9.8125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,12 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd7913d40681de4e81bf0e4515505ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsDropped: 200
-  health: 3000
+  pointsDropped: 2000
+  health: 2000
   shotsPerSecond: 0
   projectileSpeed: 0
   movementSpeed: 1
-  chargeBarValue: 500
+  chargeBarValue: 20
   Drop1: {fileID: 1561003269203512, guid: 8e8248b4a78feca4cbc936ce84c1e3a3, type: 2}
   Drop2: {fileID: 1262768803736668, guid: ff00fdf6ad681264380f650efa097c6b, type: 2}
   Drop3: {fileID: 1274631918376712, guid: fc6c708cf4dd7ae4b85e112f350dd957, type: 2}

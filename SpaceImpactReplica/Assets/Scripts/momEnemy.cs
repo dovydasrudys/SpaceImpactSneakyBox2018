@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class momEnemy : MonoBehaviour {
 
     float timer;
-    public int pointsDropped = 150;
+    public int pointsDropped = 1000;
     public float health = 500f;
     float savedHealth;
     public float firingRate = 0.5f;
@@ -49,15 +49,15 @@ public class momEnemy : MonoBehaviour {
                 test.value += chargeBarValue;
                 Instantiate(explosion, transform.position, transform.rotation).transform.localScale += new Vector3(4, 4, 4);
                 Instantiate(minion, transform.position, transform.rotation).transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
-                if (Random.Range(1f, 100f) <= 20f)
-                {
-                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
-                    Instantiate(Drop1, position, transform.rotation);
-                }
-                else if (Random.Range(1f, 100f) > 95f)
+                if (Random.Range(1f, 100f) <= 15f)
                 {
                     Vector3 position = transform.position + new Vector3(0f, -0.8f);
                     Instantiate(TripleShot, position, TripleShot.transform.rotation);
+                }
+                if (Random.Range(1f, 100f) >= 95f)
+                {
+                    Vector3 position = transform.position + new Vector3(0f, -0.8f);
+                    Instantiate(TripleShot, position, transform.rotation);
                 }
             }
             Destroy();
