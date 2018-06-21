@@ -88,6 +88,13 @@ public class Eenemy : MonoBehaviour
             ReceiveDamage(player.damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "FlatBull")
+        {
+            FlatBull missile = collision.gameObject.GetComponent<FlatBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "RocketBull")
         {
             RocketBull missile = collision.gameObject.GetComponent<RocketBull>();

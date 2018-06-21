@@ -19,6 +19,10 @@ public class Movement : MonoBehaviour
     ObjectPooler PlasmaBullPooler;
     public GameObject PlasmaBull;
 
+    GameObject FlatBullPool;
+    ObjectPooler FlatBullPooler;
+    public GameObject FlatBull;
+
     GameObject LaserBullPool;
     ObjectPooler LaserBullPooler;
     public GameObject LaserBull;
@@ -62,6 +66,10 @@ public class Movement : MonoBehaviour
         PlasmaBullPooler = PlasmaBullPool.GetComponent<ObjectPooler>();
         PlasmaBull = PlasmaBullPooler.pooledObject;
 
+        FlatBullPool = GameObject.FindGameObjectWithTag("FlatBullPool");
+        FlatBullPooler = FlatBullPool.GetComponent<ObjectPooler>();
+        FlatBull = FlatBullPooler.pooledObject;
+
         RocketBullPool = GameObject.FindGameObjectWithTag("RocketBullPool");
         RocketBullPooler = RocketBullPool.GetComponent<ObjectPooler>();
         RocketBull = RocketBullPooler.pooledObject;
@@ -83,6 +91,7 @@ public class Movement : MonoBehaviour
         Move();
         FireAtSpecifiedRate();
         PlasmaAttack();
+        FlatAttack();
         LaserAttack();
         Defence();
     }
@@ -108,6 +117,21 @@ public class Movement : MonoBehaviour
             {
                 rocketActivated = false;
             }
+        }
+    }
+
+    void FlatAttack()
+    {
+        if (Input.GetKeyDown("q"))
+        {
+            Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
+            GameObject bull01 = FlatBullPooler.GetPooledObject(position1, transform.rotation);
+            bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, -1.3f);
+            bull01.GetComponent<FlatBull>().damage = damage;
+            Vector3 position2 = transform.position + new Vector3(0.5f, -0.5f);
+            GameObject bull02 = FlatBullPooler.GetPooledObject(position2, transform.rotation);
+            bull02.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 1.3f);
+            bull02.GetComponent<FlatBull>().damage = damage;
         }
     }
 

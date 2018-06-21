@@ -71,6 +71,8 @@ TagManager:
   - Eenemy6
   - BombBull
   - BombBullPool
+  - FlatBullPool
+  - FlatBull
   layers:
   - Default
   - TransparentFX

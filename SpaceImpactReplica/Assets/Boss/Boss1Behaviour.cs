@@ -93,6 +93,13 @@ public class Boss1Behaviour : MonoBehaviour
             hitPoints -= missile.GetDamage();
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "FlatBull")
+        {
+            FlatBull missile = collision.gameObject.GetComponent<FlatBull>();
+            healthSlider.value -= missile.GetDamage();
+            hitPoints -= missile.GetDamage();
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "RocketBull")
         {
             RocketBull missile = collision.gameObject.GetComponent<RocketBull>();

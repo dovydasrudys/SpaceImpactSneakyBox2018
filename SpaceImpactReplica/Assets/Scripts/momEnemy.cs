@@ -79,6 +79,13 @@ public class momEnemy : MonoBehaviour {
             ReceiveDamage(player.damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "FlatBull")
+        {
+            FlatBull missile = collision.gameObject.GetComponent<FlatBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            ReceiveDamage(player.damage);
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "DefensiveBull")
         {
             DefensiveBull missile = collision.gameObject.GetComponent<DefensiveBull>();
