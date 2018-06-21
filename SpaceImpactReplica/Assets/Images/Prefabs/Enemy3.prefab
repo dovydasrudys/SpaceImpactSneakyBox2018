@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212317971316653390}
   - component: {fileID: 50306891423965656}
   - component: {fileID: 114882770331019196}
-  - component: {fileID: 60510099245646410}
+  - component: {fileID: 60778758817615944}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy3
@@ -110,7 +110,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986652244363940}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!60 &60510099245646410
+--- !u!60 &60778758817615944
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -132,7 +132,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsDropped: 150
-  health: 500
+  health: 200
   shotsPerSecond: 1.2
   projectileSpeed: 5
   movementSpeed: 1

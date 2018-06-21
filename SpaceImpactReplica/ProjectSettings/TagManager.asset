@@ -67,6 +67,10 @@ TagManager:
   - DefensiveBullPool
   - DefensiveBull
   - Drop3
+  - EPool6
+  - Eenemy6
+  - BombBull
+  - BombBullPool
   layers:
   - Default
   - TransparentFX

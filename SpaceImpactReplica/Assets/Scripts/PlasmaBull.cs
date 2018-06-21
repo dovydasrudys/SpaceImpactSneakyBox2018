@@ -58,7 +58,7 @@ using UnityEngine;
                     case "Boss":
                         explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
                         break;
-                    default:
+                default:
                         break;
                 }
             }

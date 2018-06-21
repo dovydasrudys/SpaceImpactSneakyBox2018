@@ -100,6 +100,13 @@ public class Eenemy2 : MonoBehaviour
             ReceiveDamage(player.damage);
             missile.Hit();
         }
+        else if (collision.gameObject.tag == "DefensiveBull")
+        {
+            DefensiveBull missile = collision.gameObject.GetComponent<DefensiveBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            Destroy();
+            missile.Hit();
+        }
         else if (collision.gameObject.tag == "RocketBull")
         {
             RocketBull missile = collision.gameObject.GetComponent<RocketBull>();

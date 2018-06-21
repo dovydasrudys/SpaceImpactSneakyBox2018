@@ -72,10 +72,11 @@ public class EnemyBehaviour : MonoBehaviour {
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "PlayerProjectile") {
+        if (collision.gameObject.tag == "PlayerProjectile")
+        {
             Projectile missile = collision.gameObject.GetComponent<Projectile>();
             Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
-            ReceiveDamage(player.damage);            
+            ReceiveDamage(player.damage);
             missile.Hit();
         }
         else if (collision.gameObject.tag == "PlasmaBull")
@@ -83,6 +84,13 @@ public class EnemyBehaviour : MonoBehaviour {
             PlasmaBull missile = collision.gameObject.GetComponent<PlasmaBull>();
             Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
             ReceiveDamage(player.damage);
+            missile.Hit();
+        }
+        else if (collision.gameObject.tag == "DefensiveBull")
+        {
+            DefensiveBull missile = collision.gameObject.GetComponent<DefensiveBull>();
+            Movement player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            Destroy();
             missile.Hit();
         }
         else if (collision.gameObject.tag == "RocketBull")

@@ -74,8 +74,6 @@ public class Movement : MonoBehaviour
         DefensiveBullPooler = DefensiveBullPool.GetComponent<ObjectPooler>();
         DefensiveBull = DefensiveBullPooler.pooledObject;
         maxHealth = health;
-        defenceActivated = true;
-        defenceSpawn = true;
     }
 
 
@@ -123,9 +121,9 @@ public class Movement : MonoBehaviour
 
     void Defence()
     {
-        defenceTimer += Time.deltaTime;
         if (defenceActivated)
         {
+            defenceTimer += Time.deltaTime;
             if (defenceSpawn)
             {
                 Vector3 position1 = transform.position + new Vector3(0.8f, 0);
@@ -134,7 +132,7 @@ public class Movement : MonoBehaviour
             }
             DefensiveBull.transform.localPosition = transform.localPosition + new Vector3(0.8f, 0);
             DefensiveBull.GetComponent<DefensiveBull>().damage = damage;
-            if (defenceTimer > 20)
+            if (defenceTimer > 7)
             {
                 defenceActivated = false;
                 DestroyObject(DefensiveBull);
@@ -254,9 +252,13 @@ public class Movement : MonoBehaviour
             Destroy(collision.gameObject);
 
         }
-        else if (collision.gameObject.tag == "Drop3")
+        if (collision.gameObject.tag == "Drop3")
         {
-            if (!defenceActivated)
+            if (defenceActivated)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
             {
                 defenceActivated = true;
                 defenceSpawn = true;
@@ -264,11 +266,11 @@ public class Movement : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        else if (collision.gameObject.tag == "Bomb")
+        else if (collision.gameObject.tag == "BombBull")
         {
             health = 0;
             healthbar.value = 0;
-            collision.gameObject.GetComponent<Bomb>().Destroy();
+            collision.gameObject.GetComponent<BombBull>().Destroy();
         }
         else if (collision.gameObject.tag == "PowerUp")
         {

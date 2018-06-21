@@ -75,7 +75,12 @@ using UnityEngine;
             }
         }
 
-        bool isOffScreen()
+    public void Hit()
+    {
+        Destroy(gameObject);
+    }
+
+    bool isOffScreen()
         {
             if (transform.position.x < -9 || transform.position.x > 15)
                 return true;

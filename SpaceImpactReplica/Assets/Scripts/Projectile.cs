@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
                 case "Enemy2":
                     explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
                     break;
-                case "Enemy3":
+                case "Eenemy6":
                     explosionPooler.GetPooledObject(gameObject.transform.position, transform.rotation).transform.localScale += new Vector3(-1.5f, -1.5f, 1.5f);
                     break;
                 case "Enemy4":

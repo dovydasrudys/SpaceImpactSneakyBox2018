@@ -20,11 +20,11 @@ public class EnemySpawn : MonoBehaviour {
     ObjectPooler EnemyPooler1;
     GameObject EnemyPool2;
     ObjectPooler EnemyPooler2;
-    GameObject EnemyPool3;
-    ObjectPooler EnemyPooler3;
+    //GameObject EnemyPool3;
+    //ObjectPooler EnemyPooler3;
     GameObject enemyType;
     GameObject enemyType2;
-    GameObject enemyType3;
+    //GameObject enemyType3;
     GameObject lastSpawned;
     public GameObject enemyType4;
 
@@ -43,6 +43,9 @@ public class EnemySpawn : MonoBehaviour {
     GameObject EPool5;
     ObjectPooler EPooler5;
     GameObject enemyType9;
+    GameObject EPool6;
+    ObjectPooler EPooler6;
+    GameObject enemyType10;
     // Use this for initialization
     void Start () {
         Time.timeScale = 1f;
@@ -52,8 +55,10 @@ public class EnemySpawn : MonoBehaviour {
         EnemyPooler1 = EnemyPool1.GetComponent<ObjectPooler>();
         EnemyPool2 = GameObject.FindGameObjectWithTag("EnemyPool2");
         EnemyPooler2 = EnemyPool2.GetComponent<ObjectPooler>();
-        EnemyPool3 = GameObject.FindGameObjectWithTag("EnemyPool3");
-        EnemyPooler3 = EnemyPool3.GetComponent<ObjectPooler>();
+        EPool6 = GameObject.FindGameObjectWithTag("EPool6");
+        EPooler6 = EPool6.GetComponent<ObjectPooler>();
+        //EnemyPool3 = GameObject.FindGameObjectWithTag("EnemyPool3");
+        //EnemyPooler3 = EnemyPool3.GetComponent<ObjectPooler>();
         EPool1 = GameObject.FindGameObjectWithTag("EPool1");
         EPooler1 = EPool1.GetComponent<ObjectPooler>();
         EPool2 = GameObject.FindGameObjectWithTag("EPool2");
@@ -66,12 +71,13 @@ public class EnemySpawn : MonoBehaviour {
         EPooler5 = EPool5.GetComponent<ObjectPooler>();
         enemyType = EnemyPooler1.pooledObject;
         enemyType2 = EnemyPooler2.pooledObject;
-        enemyType3 = EnemyPooler3.pooledObject;
+        //enemyType3 = EnemyPooler3.pooledObject;
         enemyType5 = EPooler1.pooledObject;
         enemyType6 = EPooler2.pooledObject;
         enemyType7 = EPooler3.pooledObject;
         enemyType8 = EPooler4.pooledObject;
         enemyType9 = EPooler5.pooledObject;
+        enemyType10 = EPooler6.pooledObject;
     }
 	
 	// Update is called once per frame
@@ -81,7 +87,7 @@ public class EnemySpawn : MonoBehaviour {
         {
             if (SpawnEnemies)
             {
-                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType3,enemyType4, enemyType5, enemyType6, enemyType7, enemyType8, enemyType9));
+                SpawnEnemy(chooseEnemyType(enemyType,enemyType2,enemyType10,enemyType4, enemyType5, enemyType6, enemyType7, enemyType8, enemyType9));
                 timer = 0;
                 enemiesSpawned++;
 
@@ -101,7 +107,7 @@ public class EnemySpawn : MonoBehaviour {
             }
         }
     }
-    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type3, GameObject type4, GameObject type5, GameObject type6, GameObject type7, GameObject type8, GameObject type9)
+    GameObject chooseEnemyType(GameObject type1, GameObject type2, GameObject type10, GameObject type4, GameObject type5, GameObject type6, GameObject type7, GameObject type8, GameObject type9)
     {
         int var = Random.Range(0, 10);
         switch (var)
@@ -111,7 +117,7 @@ public class EnemySpawn : MonoBehaviour {
             case 2:
                 return type2;
             case 3:
-                return type3;
+                return type10;
             case 4:
                 return type4;
             case 5:
@@ -130,7 +136,7 @@ public class EnemySpawn : MonoBehaviour {
     {
         while (type == lastSpawned)
         {
-            type = chooseEnemyType(enemyType, enemyType2, enemyType3, enemyType4, enemyType5, enemyType6, enemyType7, enemyType8, enemyType9);
+            type = chooseEnemyType(enemyType, enemyType2, enemyType10, enemyType4, enemyType5, enemyType6, enemyType7, enemyType8, enemyType9);
         }
         lastSpawned = type;
         GameObject typ = type;
@@ -145,14 +151,15 @@ public class EnemySpawn : MonoBehaviour {
             SpawnEnemies = false;
             return;
         }
-        if (typ == enemyType3)
+        if (typ == enemyType6)
         {
-            EnemyPooler3.GetPooledObject(new Vector3(10, 4), transform.rotation);
+            EPooler3.GetPooledObject(new Vector3(10, 4), transform.rotation);
             typ = enemyType;
         }
         int spawnLocation = Random.Range(-4, 0);
         int verticalSpawn = Random.Range(-10, -4);
         int spawnOption = Random.Range(1, 7);
+        EPooler6.GetPooledObject(new Vector3(10, spawnLocation + 7f), transform.rotation);
         EPooler4.GetPooledObject(new Vector3(10, spawnLocation - 2 + 0.5f), transform.rotation);
         EPooler3.GetPooledObject(new Vector3(10, spawnLocation + 1 + 0.5f), transform.rotation);
         for (int i = 0; i < 2; i++)
