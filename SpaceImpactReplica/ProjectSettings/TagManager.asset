@@ -73,6 +73,7 @@ TagManager:
   - BombBullPool
   - FlatBullPool
   - FlatBull
+  - Drop4
   layers:
   - Default
   - TransparentFX

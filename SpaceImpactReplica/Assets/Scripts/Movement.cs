@@ -9,9 +9,11 @@ public class Movement : MonoBehaviour
     bool rocketActivated = false;
     bool defenceActivated = false;
     bool defenceSpawn = false;
+    bool flatactivated = false;
     float x3Timer;
     float rocketTimer;
     float defenceTimer;
+    float flattimer;
     GameObject bulletPool;
     ObjectPooler bulletPooler;
 
@@ -91,7 +93,6 @@ public class Movement : MonoBehaviour
         Move();
         FireAtSpecifiedRate();
         PlasmaAttack();
-        FlatAttack();
         LaserAttack();
         Defence();
     }
@@ -101,6 +102,7 @@ public class Movement : MonoBehaviour
         timer += Time.deltaTime;
         x3Timer += Time.deltaTime;
         rocketTimer += Time.deltaTime;
+        flattimer += Time.deltaTime;
         if (timer > secondsPerShot)
         {
             Fire();
@@ -118,21 +120,25 @@ public class Movement : MonoBehaviour
                 rocketActivated = false;
             }
         }
+        if (flatactivated)
+        {
+            if(flattimer > 7)
+            {
+                flatactivated = false;
+            }
+        }
     }
 
     void FlatAttack()
     {
-        if (Input.GetKeyDown("q"))
-        {
-            Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
-            GameObject bull01 = FlatBullPooler.GetPooledObject(position1, transform.rotation);
-            bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, -1.3f);
-            bull01.GetComponent<FlatBull>().damage = damage;
-            Vector3 position2 = transform.position + new Vector3(0.5f, -0.5f);
-            GameObject bull02 = FlatBullPooler.GetPooledObject(position2, transform.rotation);
-            bull02.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 1.3f);
-            bull02.GetComponent<FlatBull>().damage = damage;
-        }
+        Vector3 position1 = transform.position + new Vector3(0.5f, 0.5f);
+        GameObject bull01 = FlatBullPooler.GetPooledObject(position1, transform.rotation);
+        bull01.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, -1.3f);
+        bull01.GetComponent<FlatBull>().damage = damage;
+        Vector3 position2 = transform.position + new Vector3(0.5f, -0.5f);
+        GameObject bull02 = FlatBullPooler.GetPooledObject(position2, transform.rotation);
+        bull02.GetComponent<Rigidbody2D>().velocity = new Vector3(projectileSpeed, 1.3f);
+        bull02.GetComponent<FlatBull>().damage = damage;
     }
 
     void SpecialAttack() {
@@ -290,6 +296,14 @@ public class Movement : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+        else if (collision.gameObject.tag == "Drop4")
+        {
+            flatactivated = true;
+            x3Activated = false;
+            flattimer = 0;
+            Destroy(collision.gameObject);
+
+        }
         else if (collision.gameObject.tag == "BombBull")
         {
             health = 0;
@@ -337,6 +351,11 @@ public class Movement : MonoBehaviour
         if (rocketActivated)
         {
             RocketAttack();
+            return;
+        }
+        if (flatactivated)
+        {
+            FlatAttack();
             return;
         }
         Vector3 position = transform.position + new Vector3(0.8f, 0f);
